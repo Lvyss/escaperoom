@@ -14,7 +14,6 @@ export const missions = [
     questions: [
       {
         number: 1,
-        title: "Soal 1: Bahasa yang Dipahami Semua Orang (C2 - Memahami Konsep)",
         question:
           "Di sebuah ruangan, kamu menemukan dokumen dengan tulisan:\n“Melalui aku, pemilik usaha dan investor bisa memahami keadaan keuangan tanpa harus melihat langsung ke kas.”\nDokumen itu menggambarkan fungsi akuntansi sebagai...",
         options: [
@@ -27,7 +26,6 @@ export const missions = [
       },
       {
         number: 2,
-        title: "Soal 2: Buku Tua Tahun 1494 (C1 - Pengetahuan Sejarah)",
         question:
           "Kamu menemukan buku dengan catatan 'Debit di kiri, Kredit di kanan'.\nCatatan itu dikaitkan dengan sistem yang pertama kali diperkenalkan oleh...",
         options: [
@@ -40,7 +38,6 @@ export const missions = [
       },
       {
         number: 3,
-        title: "Soal 3: Empat Langkah Rahasia (C3 - Penerapan Fungsi)",
         question:
           "Di sebuah meja terdapat empat kertas yang bertuliskan: Identifikasi - Pencatatan - Penggolongan - Pelaporan.\nKeempatnya menggambarkan...",
         options: [
@@ -53,7 +50,6 @@ export const missions = [
       },
       {
         number: 4,
-        title: "Soal 4: Cermin Pengambil Keputusan (C4 - Analisis Tujuan)",
         question:
           "Cermin di depanmu memantulkan kalimat: 'Tanpa aku, keputusan hanyalah tebakan.'\nKalimat itu menggambarkan bahwa tujuan utama akuntansi adalah...",
         options: [
@@ -66,7 +62,6 @@ export const missions = [
       },
       {
         number: 5,
-        title: "Soal 5: Bayangan Dua Laporan (C3 - Penerapan Hubungan)",
         question:
           "Kamu melihat dua laporan di meja: Laporan Laba Rugi dan Neraca.\nKeduanya merupakan hasil dari proses...",
         options: [
@@ -79,7 +74,6 @@ export const missions = [
       },
       {
         number: 6,
-        title: "Soal 6: Laporan yang Dimanipulasi (C4 - Analisis Nilai)",
         question:
           "Dalam salah satu arsip, kamu menemukan laporan keuangan yang diubah agar tampak menguntungkan.\nPerubahan itu melanggar prinsip...",
         options: [
@@ -92,7 +86,6 @@ export const missions = [
       },
       {
         number: 7,
-        title: "Soal 7: Laporan yang Terlambat (C4 - Analisis Relevansi)",
         question:
           "Sebuah laporan keuangan ditemukan lengkap, tapi baru disusun enam bulan setelah akhir periode.\nMasalah utama laporan itu adalah...",
         options: [
@@ -105,7 +98,6 @@ export const missions = [
       },
       {
         number: 8,
-        title: "Soal 8: Tugas Bendahara Lembaga (C3 - Penerapan Konteks)",
         question:
           "Kamu berperan sebagai bendahara sekolah yang harus mencatat penerimaan dan pengeluaran dengan rapi agar laporan dapat dipertanggungjawabkan.\nSistem yang harus kamu gunakan adalah...",
         options: [
@@ -118,7 +110,6 @@ export const missions = [
       },
       {
         number: 9,
-        title: "Soal 9: Nota Penghapus (C4 - Analisis Prinsip)",
         question:
           "Di atas meja terdapat sebuah nota pembelian penghapus Rp10.000 yang langsung diakui sebagai beban.\nTindakan tersebut sesuai dengan prinsip...",
         options: [
@@ -131,7 +122,6 @@ export const missions = [
       },
       {
         number: 10,
-        title: "Soal 10: Pesan Penjaga Arsip (C4 - Sintesis Makna)",
         question:
           "Di halaman akhir buku terdapat tulisan terakhir: 'Angka bukan tujuan, melainkan alat untuk memahami keadaan.'\nPesan ini menunjukkan bahwa akuntansi berperan sebagai...",
         options: [
@@ -145,7 +135,7 @@ export const missions = [
     ],
   },
 
-  {
+    {
     id: 2,
     title: "Misi 1: Ruang Dasar Akutansi",
     intro: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi, kamu bisa menemukan kunci keluar dari ruang ini.",
@@ -160,7 +150,6 @@ export const missions = [
     questions: [
       {
         number: 1,
-        title: "Soal 1: Bahasa yang Dipahami Semua Orang (C2 - Memahami Konsep)",
         question:
           "Di sebuah ruangan, kamu menemukan dokumen dengan tulisan:\n“Melalui aku, pemilik usaha dan investor bisa memahami keadaan keuangan tanpa harus melihat langsung ke kas.”\nDokumen itu menggambarkan fungsi akuntansi sebagai...",
         options: [
@@ -173,7 +162,6 @@ export const missions = [
       },
       {
         number: 2,
-        title: "Soal 2: Buku Tua Tahun 1494 (C1 - Pengetahuan Sejarah)",
         question:
           "Kamu menemukan buku dengan catatan 'Debit di kiri, Kredit di kanan'.\nCatatan itu dikaitkan dengan sistem yang pertama kali diperkenalkan oleh...",
         options: [
@@ -186,7 +174,6 @@ export const missions = [
       },
       {
         number: 3,
-        title: "Soal 3: Empat Langkah Rahasia (C3 - Penerapan Fungsi)",
         question:
           "Di sebuah meja terdapat empat kertas yang bertuliskan: Identifikasi - Pencatatan - Penggolongan - Pelaporan.\nKeempatnya menggambarkan...",
         options: [
@@ -199,7 +186,6 @@ export const missions = [
       },
       {
         number: 4,
-        title: "Soal 4: Cermin Pengambil Keputusan (C4 - Analisis Tujuan)",
         question:
           "Cermin di depanmu memantulkan kalimat: 'Tanpa aku, keputusan hanyalah tebakan.'\nKalimat itu menggambarkan bahwa tujuan utama akuntansi adalah...",
         options: [
@@ -212,7 +198,6 @@ export const missions = [
       },
       {
         number: 5,
-        title: "Soal 5: Bayangan Dua Laporan (C3 - Penerapan Hubungan)",
         question:
           "Kamu melihat dua laporan di meja: Laporan Laba Rugi dan Neraca.\nKeduanya merupakan hasil dari proses...",
         options: [
@@ -225,7 +210,6 @@ export const missions = [
       },
       {
         number: 6,
-        title: "Soal 6: Laporan yang Dimanipulasi (C4 - Analisis Nilai)",
         question:
           "Dalam salah satu arsip, kamu menemukan laporan keuangan yang diubah agar tampak menguntungkan.\nPerubahan itu melanggar prinsip...",
         options: [
@@ -238,7 +222,6 @@ export const missions = [
       },
       {
         number: 7,
-        title: "Soal 7: Laporan yang Terlambat (C4 - Analisis Relevansi)",
         question:
           "Sebuah laporan keuangan ditemukan lengkap, tapi baru disusun enam bulan setelah akhir periode.\nMasalah utama laporan itu adalah...",
         options: [
@@ -251,7 +234,6 @@ export const missions = [
       },
       {
         number: 8,
-        title: "Soal 8: Tugas Bendahara Lembaga (C3 - Penerapan Konteks)",
         question:
           "Kamu berperan sebagai bendahara sekolah yang harus mencatat penerimaan dan pengeluaran dengan rapi agar laporan dapat dipertanggungjawabkan.\nSistem yang harus kamu gunakan adalah...",
         options: [
@@ -264,7 +246,6 @@ export const missions = [
       },
       {
         number: 9,
-        title: "Soal 9: Nota Penghapus (C4 - Analisis Prinsip)",
         question:
           "Di atas meja terdapat sebuah nota pembelian penghapus Rp10.000 yang langsung diakui sebagai beban.\nTindakan tersebut sesuai dengan prinsip...",
         options: [
@@ -277,7 +258,6 @@ export const missions = [
       },
       {
         number: 10,
-        title: "Soal 10: Pesan Penjaga Arsip (C4 - Sintesis Makna)",
         question:
           "Di halaman akhir buku terdapat tulisan terakhir: 'Angka bukan tujuan, melainkan alat untuk memahami keadaan.'\nPesan ini menunjukkan bahwa akuntansi berperan sebagai...",
         options: [
@@ -306,7 +286,6 @@ export const missions = [
     questions: [
       {
         number: 1,
-        title: "Soal 1: Bahasa yang Dipahami Semua Orang (C2 - Memahami Konsep)",
         question:
           "Di sebuah ruangan, kamu menemukan dokumen dengan tulisan:\n“Melalui aku, pemilik usaha dan investor bisa memahami keadaan keuangan tanpa harus melihat langsung ke kas.”\nDokumen itu menggambarkan fungsi akuntansi sebagai...",
         options: [
@@ -319,7 +298,6 @@ export const missions = [
       },
       {
         number: 2,
-        title: "Soal 2: Buku Tua Tahun 1494 (C1 - Pengetahuan Sejarah)",
         question:
           "Kamu menemukan buku dengan catatan 'Debit di kiri, Kredit di kanan'.\nCatatan itu dikaitkan dengan sistem yang pertama kali diperkenalkan oleh...",
         options: [
@@ -332,7 +310,6 @@ export const missions = [
       },
       {
         number: 3,
-        title: "Soal 3: Empat Langkah Rahasia (C3 - Penerapan Fungsi)",
         question:
           "Di sebuah meja terdapat empat kertas yang bertuliskan: Identifikasi - Pencatatan - Penggolongan - Pelaporan.\nKeempatnya menggambarkan...",
         options: [
@@ -345,7 +322,6 @@ export const missions = [
       },
       {
         number: 4,
-        title: "Soal 4: Cermin Pengambil Keputusan (C4 - Analisis Tujuan)",
         question:
           "Cermin di depanmu memantulkan kalimat: 'Tanpa aku, keputusan hanyalah tebakan.'\nKalimat itu menggambarkan bahwa tujuan utama akuntansi adalah...",
         options: [
@@ -358,7 +334,6 @@ export const missions = [
       },
       {
         number: 5,
-        title: "Soal 5: Bayangan Dua Laporan (C3 - Penerapan Hubungan)",
         question:
           "Kamu melihat dua laporan di meja: Laporan Laba Rugi dan Neraca.\nKeduanya merupakan hasil dari proses...",
         options: [
@@ -371,7 +346,6 @@ export const missions = [
       },
       {
         number: 6,
-        title: "Soal 6: Laporan yang Dimanipulasi (C4 - Analisis Nilai)",
         question:
           "Dalam salah satu arsip, kamu menemukan laporan keuangan yang diubah agar tampak menguntungkan.\nPerubahan itu melanggar prinsip...",
         options: [
@@ -384,7 +358,6 @@ export const missions = [
       },
       {
         number: 7,
-        title: "Soal 7: Laporan yang Terlambat (C4 - Analisis Relevansi)",
         question:
           "Sebuah laporan keuangan ditemukan lengkap, tapi baru disusun enam bulan setelah akhir periode.\nMasalah utama laporan itu adalah...",
         options: [
@@ -397,7 +370,6 @@ export const missions = [
       },
       {
         number: 8,
-        title: "Soal 8: Tugas Bendahara Lembaga (C3 - Penerapan Konteks)",
         question:
           "Kamu berperan sebagai bendahara sekolah yang harus mencatat penerimaan dan pengeluaran dengan rapi agar laporan dapat dipertanggungjawabkan.\nSistem yang harus kamu gunakan adalah...",
         options: [
@@ -410,7 +382,6 @@ export const missions = [
       },
       {
         number: 9,
-        title: "Soal 9: Nota Penghapus (C4 - Analisis Prinsip)",
         question:
           "Di atas meja terdapat sebuah nota pembelian penghapus Rp10.000 yang langsung diakui sebagai beban.\nTindakan tersebut sesuai dengan prinsip...",
         options: [
@@ -423,7 +394,6 @@ export const missions = [
       },
       {
         number: 10,
-        title: "Soal 10: Pesan Penjaga Arsip (C4 - Sintesis Makna)",
         question:
           "Di halaman akhir buku terdapat tulisan terakhir: 'Angka bukan tujuan, melainkan alat untuk memahami keadaan.'\nPesan ini menunjukkan bahwa akuntansi berperan sebagai...",
         options: [
@@ -452,7 +422,6 @@ export const missions = [
     questions: [
       {
         number: 1,
-        title: "Soal 1: Bahasa yang Dipahami Semua Orang (C2 - Memahami Konsep)",
         question:
           "Di sebuah ruangan, kamu menemukan dokumen dengan tulisan:\n“Melalui aku, pemilik usaha dan investor bisa memahami keadaan keuangan tanpa harus melihat langsung ke kas.”\nDokumen itu menggambarkan fungsi akuntansi sebagai...",
         options: [
@@ -465,7 +434,6 @@ export const missions = [
       },
       {
         number: 2,
-        title: "Soal 2: Buku Tua Tahun 1494 (C1 - Pengetahuan Sejarah)",
         question:
           "Kamu menemukan buku dengan catatan 'Debit di kiri, Kredit di kanan'.\nCatatan itu dikaitkan dengan sistem yang pertama kali diperkenalkan oleh...",
         options: [
@@ -478,7 +446,6 @@ export const missions = [
       },
       {
         number: 3,
-        title: "Soal 3: Empat Langkah Rahasia (C3 - Penerapan Fungsi)",
         question:
           "Di sebuah meja terdapat empat kertas yang bertuliskan: Identifikasi - Pencatatan - Penggolongan - Pelaporan.\nKeempatnya menggambarkan...",
         options: [
@@ -491,7 +458,6 @@ export const missions = [
       },
       {
         number: 4,
-        title: "Soal 4: Cermin Pengambil Keputusan (C4 - Analisis Tujuan)",
         question:
           "Cermin di depanmu memantulkan kalimat: 'Tanpa aku, keputusan hanyalah tebakan.'\nKalimat itu menggambarkan bahwa tujuan utama akuntansi adalah...",
         options: [
@@ -504,7 +470,6 @@ export const missions = [
       },
       {
         number: 5,
-        title: "Soal 5: Bayangan Dua Laporan (C3 - Penerapan Hubungan)",
         question:
           "Kamu melihat dua laporan di meja: Laporan Laba Rugi dan Neraca.\nKeduanya merupakan hasil dari proses...",
         options: [
@@ -517,7 +482,6 @@ export const missions = [
       },
       {
         number: 6,
-        title: "Soal 6: Laporan yang Dimanipulasi (C4 - Analisis Nilai)",
         question:
           "Dalam salah satu arsip, kamu menemukan laporan keuangan yang diubah agar tampak menguntungkan.\nPerubahan itu melanggar prinsip...",
         options: [
@@ -530,7 +494,6 @@ export const missions = [
       },
       {
         number: 7,
-        title: "Soal 7: Laporan yang Terlambat (C4 - Analisis Relevansi)",
         question:
           "Sebuah laporan keuangan ditemukan lengkap, tapi baru disusun enam bulan setelah akhir periode.\nMasalah utama laporan itu adalah...",
         options: [
@@ -543,7 +506,6 @@ export const missions = [
       },
       {
         number: 8,
-        title: "Soal 8: Tugas Bendahara Lembaga (C3 - Penerapan Konteks)",
         question:
           "Kamu berperan sebagai bendahara sekolah yang harus mencatat penerimaan dan pengeluaran dengan rapi agar laporan dapat dipertanggungjawabkan.\nSistem yang harus kamu gunakan adalah...",
         options: [
@@ -556,7 +518,6 @@ export const missions = [
       },
       {
         number: 9,
-        title: "Soal 9: Nota Penghapus (C4 - Analisis Prinsip)",
         question:
           "Di atas meja terdapat sebuah nota pembelian penghapus Rp10.000 yang langsung diakui sebagai beban.\nTindakan tersebut sesuai dengan prinsip...",
         options: [
@@ -569,7 +530,6 @@ export const missions = [
       },
       {
         number: 10,
-        title: "Soal 10: Pesan Penjaga Arsip (C4 - Sintesis Makna)",
         question:
           "Di halaman akhir buku terdapat tulisan terakhir: 'Angka bukan tujuan, melainkan alat untuk memahami keadaan.'\nPesan ini menunjukkan bahwa akuntansi berperan sebagai...",
         options: [
@@ -598,7 +558,6 @@ export const missions = [
     questions: [
       {
         number: 1,
-        title: "Soal 1: Bahasa yang Dipahami Semua Orang (C2 - Memahami Konsep)",
         question:
           "Di sebuah ruangan, kamu menemukan dokumen dengan tulisan:\n“Melalui aku, pemilik usaha dan investor bisa memahami keadaan keuangan tanpa harus melihat langsung ke kas.”\nDokumen itu menggambarkan fungsi akuntansi sebagai...",
         options: [
@@ -611,7 +570,6 @@ export const missions = [
       },
       {
         number: 2,
-        title: "Soal 2: Buku Tua Tahun 1494 (C1 - Pengetahuan Sejarah)",
         question:
           "Kamu menemukan buku dengan catatan 'Debit di kiri, Kredit di kanan'.\nCatatan itu dikaitkan dengan sistem yang pertama kali diperkenalkan oleh...",
         options: [
@@ -624,7 +582,6 @@ export const missions = [
       },
       {
         number: 3,
-        title: "Soal 3: Empat Langkah Rahasia (C3 - Penerapan Fungsi)",
         question:
           "Di sebuah meja terdapat empat kertas yang bertuliskan: Identifikasi - Pencatatan - Penggolongan - Pelaporan.\nKeempatnya menggambarkan...",
         options: [
@@ -637,7 +594,6 @@ export const missions = [
       },
       {
         number: 4,
-        title: "Soal 4: Cermin Pengambil Keputusan (C4 - Analisis Tujuan)",
         question:
           "Cermin di depanmu memantulkan kalimat: 'Tanpa aku, keputusan hanyalah tebakan.'\nKalimat itu menggambarkan bahwa tujuan utama akuntansi adalah...",
         options: [
@@ -650,7 +606,6 @@ export const missions = [
       },
       {
         number: 5,
-        title: "Soal 5: Bayangan Dua Laporan (C3 - Penerapan Hubungan)",
         question:
           "Kamu melihat dua laporan di meja: Laporan Laba Rugi dan Neraca.\nKeduanya merupakan hasil dari proses...",
         options: [
@@ -663,7 +618,6 @@ export const missions = [
       },
       {
         number: 6,
-        title: "Soal 6: Laporan yang Dimanipulasi (C4 - Analisis Nilai)",
         question:
           "Dalam salah satu arsip, kamu menemukan laporan keuangan yang diubah agar tampak menguntungkan.\nPerubahan itu melanggar prinsip...",
         options: [
@@ -676,7 +630,6 @@ export const missions = [
       },
       {
         number: 7,
-        title: "Soal 7: Laporan yang Terlambat (C4 - Analisis Relevansi)",
         question:
           "Sebuah laporan keuangan ditemukan lengkap, tapi baru disusun enam bulan setelah akhir periode.\nMasalah utama laporan itu adalah...",
         options: [
@@ -689,7 +642,6 @@ export const missions = [
       },
       {
         number: 8,
-        title: "Soal 8: Tugas Bendahara Lembaga (C3 - Penerapan Konteks)",
         question:
           "Kamu berperan sebagai bendahara sekolah yang harus mencatat penerimaan dan pengeluaran dengan rapi agar laporan dapat dipertanggungjawabkan.\nSistem yang harus kamu gunakan adalah...",
         options: [
@@ -702,7 +654,6 @@ export const missions = [
       },
       {
         number: 9,
-        title: "Soal 9: Nota Penghapus (C4 - Analisis Prinsip)",
         question:
           "Di atas meja terdapat sebuah nota pembelian penghapus Rp10.000 yang langsung diakui sebagai beban.\nTindakan tersebut sesuai dengan prinsip...",
         options: [
@@ -715,7 +666,6 @@ export const missions = [
       },
       {
         number: 10,
-        title: "Soal 10: Pesan Penjaga Arsip (C4 - Sintesis Makna)",
         question:
           "Di halaman akhir buku terdapat tulisan terakhir: 'Angka bukan tujuan, melainkan alat untuk memahami keadaan.'\nPesan ini menunjukkan bahwa akuntansi berperan sebagai...",
         options: [
@@ -728,6 +678,5 @@ export const missions = [
       },
     ],
   },
-
 
 ];

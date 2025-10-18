@@ -59,10 +59,6 @@ useEffect(() => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-2xl p-6 border border-yellow-800 shadow-lg bg-black/30 rounded-xl"
       >
-        {/* Judul Soal */}
-        <h2 className="mb-3 text-lg font-semibold text-center text-yellow-300">
-          {currentQuestion.title}
-        </h2>
 
         {/* Teks Soal */}
         <p className="whitespace-pre-line leading-relaxed text-[15px] mb-6 text-center text-yellow-100">
