@@ -1,148 +1,120 @@
-import { useNavigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { missions } from "../data/mission";
-import { useState, useEffect, useContext } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { TimerContext } from "../contexts/TimerContext";
-
-// Hook deteksi device
-const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-  return isMobile;
-};
 
 const PuzzlePage = () => {
   const { missionId } = useParams();
-  const mission = missions.find((m) => m.id === parseInt(missionId));
   const navigate = useNavigate();
-  const isMobile = useIsMobile();
-  const hotspots = mission.puzzle.hotspots[isMobile ? "mobile" : "desktop"];
 
-  const { startTimer, stopTimer } = useContext(TimerContext);
-  const [message, setMessage] = useState("");
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [phase, setPhase] = useState("memorize"); // memorize → question
+  const [codes, setCodes] = useState({});
+  const [timeLeft, setTimeLeft] = useState(30);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [feedback, setFeedback] = useState("");
 
-  // ⏱ Start timer on mount
+  // Generate kode acak A–E
   useEffect(() => {
-    startTimer();
-    return () => stopTimer(); // stop saat keluar
+    const letters = ["A", "B", "C", "D", "E"];
+    const generated = {};
+    letters.forEach((l) => {
+      generated[l] = Math.floor(Math.random() * 90 + 10); // angka 10–99
+    });
+    setCodes(generated);
+    localStorage.setItem("memory_codes", JSON.stringify(generated));
   }, []);
 
-  const handleClick = (isCorrect) => {
-    if (isCorrect) {
-      setShowSuccess(true);
+  // Timer 30 detik
+  useEffect(() => {
+    if (phase !== "memorize") return;
+    if (timeLeft <= 0) {
+      setPhase("question");
+      generateQuestion();
+      return;
+    }
+    const timer = setTimeout(() => setTimeLeft((t) => t - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [timeLeft, phase]);
+
+  // Buat pertanyaan acak
+  const generateQuestion = () => {
+    const mode = Math.random() > 0.5 ? "letterToNumber" : "numberToLetter";
+    const letters = Object.keys(codes);
+    const randomLetter = letters[Math.floor(Math.random() * letters.length)];
+    const randomNumber = codes[randomLetter];
+
+    if (mode === "letterToNumber") {
+      setQuestion(`Berapa angka untuk huruf ${randomLetter}?`);
+      setFeedback(randomNumber.toString());
     } else {
-      setMessage("❌ Salah jalur... Perhatikan baik-baik.");
-      setTimeout(() => setMessage(""), 1500);
+      setQuestion(`Huruf mana yang memiliki angka ${randomNumber}?`);
+      setFeedback(randomLetter);
     }
   };
 
-  const handleContinue = () => {
-    setShowSuccess(false);
-    navigate(`/mission/${mission.id}`);
+  // Cek jawaban
+  const handleSubmit = () => {
+    const correct = answer.trim().toUpperCase() === feedback.toString().toUpperCase();
+    if (correct) {
+      alert("✅ Benar! Kamu bisa lanjut ke misi utama.");
+      navigate(`/mission/${missionId}`);
+    } else {
+      alert("❌ Salah. Coba ulang puzzle ini.");
+      window.location.reload();
+    }
   };
 
   return (
-    <div className="relative h-[100svh] flex flex-col items-center justify-center bg-black font-[Cinzel] overflow-hidden">
-      {/* 🌌 Background */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/img/bg_puzzle.jpg"
-          alt="puzzle bg"
-          className="object-cover w-full h-full opacity-30"
-        />
-      </div>
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/10 via-black/80 to-black" />
-
-      {/* 🧩 Puzzle Area */}
-      <motion.div
-        className="relative z-10 w-full max-w-5xl px-4 md:px-0 aspect-video md:h-[480px] rounded-xl overflow-hidden border border-yellow-900 shadow-[0_0_60px_rgba(255,255,255,0.05)]"
-        style={{
-          backgroundImage: `url(/img/${mission.puzzle.image})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.7 }}
-      >
-        <div className="absolute inset-0 bg-gradient-radial from-transparent via-black/20 to-black/60" />
-
-        {/* 🔘 Hotspots */}
-        {hotspots.map((spot, i) => (
-          <div
-            key={i}
-            onClick={() => handleClick(spot.isCorrect)}
-            className="absolute w-[40px] h-[40px] md:w-[80px] md:h-[80px] rounded-full cursor-pointer"
-            style={{
-              left: `${spot.x * 100}%`,
-              top: `${spot.y * 100}%`,
-              transform: "translate(-50%, -50%)",
-              backgroundColor: spot.isCorrect
-                ? "rgba(0,255,0,0.6)"
-                : "rgba(255,0,0,0.6)",
-              backdropFilter: "blur(1px)",
-            }}
-            title={spot.isCorrect ? "Lokasi Benar" : "Lokasi Salah"}
-          />
-        ))}
-      </motion.div>
-
-      {/* ✨ Clue */}
-      <motion.h2
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-        className="z-10 mt-10 text-lg tracking-wide text-center text-yellow-200 md:text-xl"
-      >
-        “{mission.puzzle.clue}”
-      </motion.h2>
-
-      {/* ❌ Feedback Salah */}
-      {message && (
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="z-10 mt-4 text-sm font-medium text-red-400"
+    <div className="h-[100svh] bg-[#0d0f1a] flex flex-col items-center justify-center text-yellow-200 font-[Cinzel]">
+      {phase === "memorize" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center"
         >
-          {message}
-        </motion.p>
+          <h1 className="mb-4 text-2xl">🧠 Hafalkan Kode Berikut!</h1>
+          <div className="grid grid-cols-5 gap-4 mb-6">
+            {Object.entries(codes).map(([letter, num]) => (
+              <motion.div
+                key={letter}
+                whileHover={{ scale: 1.1 }}
+                className="p-4 border border-yellow-500 rounded-lg shadow-lg bg-black/40 backdrop-blur-md"
+              >
+                <p className="text-lg font-bold">{letter}</p>
+                <p className="text-xl text-amber-400">{num}</p>
+              </motion.div>
+            ))}
+          </div>
+          <p className="text-sm text-yellow-400">
+            Waktu mengingat: {timeLeft} detik
+          </p>
+        </motion.div>
       )}
 
-      {/* ✅ Popup Berhasil */}
-      <AnimatePresence>
-        {showSuccess && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-30 flex items-center justify-center bg-black/80 backdrop-blur-md"
-          >
-            <motion.div
-              initial={{ y: 20 }}
-              animate={{ y: 0 }}
-              className="bg-[#0d0f1a] text-yellow-100 p-8 rounded-xl border border-yellow-700 shadow-xl text-center w-full max-w-sm"
+      {phase === "question" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center"
+        >
+          <h2 className="mb-4 text-xl">{question}</h2>
+          <input
+            value={answer}
+            onChange={(e) => setAnswer(e.target.value)}
+            className="px-3 py-2 text-center text-yellow-200 border border-yellow-500 rounded bg-black/40"
+            placeholder="Tulis jawabanmu..."
+          />
+          <div className="mt-4">
+            <button
+              onClick={handleSubmit}
+              className="px-4 py-2 font-bold text-black transition-all bg-yellow-500 rounded hover:bg-yellow-400"
             >
-              <h3 className="mb-3 text-xl font-bold text-amber-400">
-                ✅ Kode Lokasi Terbuka
-              </h3>
-              <p className="mb-5 text-sm">
-                Kamu telah menemukan titik yang benar. Pintu selanjutnya akan terbuka.
-              </p>
-              <button
-                onClick={handleContinue}
-                className="px-5 py-2 font-semibold text-black transition rounded-full bg-amber-500 hover:bg-amber-600"
-              >
-                Lanjutkan
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              Kirim Jawaban
+            </button>
+          </div>
+        </motion.div>
+      )}
     </div>
   );
 };

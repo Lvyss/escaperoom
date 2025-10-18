@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef,useContext  } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { missions } from "../data/mission";
 import { motion } from "framer-motion";
@@ -6,15 +6,14 @@ import { TimerContext } from "../contexts/TimerContext";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
-const { resetTimer } = useContext(TimerContext);
+  const { resetTimer } = useContext(TimerContext);
   const [showInfoId, setShowInfoId] = useState(null);
 
-const handleClickMission = (id) => {
-  localStorage.setItem(`score_m${id}`, 0);
-  resetTimer(); // ⏱ reset waktu ketika mulai misi baru
-  navigate(`/puzzle/${id}`);
-};
-
+  const handleClickMission = (id) => {
+    localStorage.setItem(`score_m${id}`, 0);
+    resetTimer(); // ⏱ reset waktu ketika mulai misi baru
+    navigate(`/puzzle/${id}`);
+  };
 
   // Detect click luar popup
   useEffect(() => {
@@ -62,7 +61,8 @@ const handleClickMission = (id) => {
         style={{
           width: size.width * 0.8,
           height: size.height * 0.8,
-          boxShadow: "0 0 20px rgba(247,165,77,0.5), 0 0 2000px rgba(247,165,77,0.3)",
+          boxShadow:
+            "0 0 10px rgba(247,165,77,0.5), 0 0 1000px rgba(247,165,77,0.3)",
         }}
         transition={{ repeat: Infinity, duration: 60, ease: "linear" }}
       />
@@ -96,19 +96,26 @@ const handleClickMission = (id) => {
                 style={{
                   width: btnSize,
                   height: btnSize,
-                  boxShadow: "0 0 20px rgba(247,165,77, 0.6), 0 0 40px rgba(251, 191, 36, 0.4)",
+                  boxShadow:
+                    "0 0 10px rgba(247,165,77, 0.6), 0 0 35px rgba(251, 191, 36, 0.4)",
                 }}
-                whileHover={{
-                  scale: 0.9,
-                  boxShadow: "0 0 20px rgba(0, 0, 0, 0.6), 0 0 40px rgba(5, 0, 0, 0.4)",
-                }}
+                initial={{ rotate: -3 }}
                 animate={{
                   rotate: [-3, 3, -3],
                 }}
+                whileHover={{
+                  scale: 0.9, // Mengecil saat hover
+                }}
                 transition={{
-                  duration: 1,
-                  repeat: Infinity,
-                  ease: "easeInOut",
+                  rotate: {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                  scale: {
+                    duration: 0.2, // Smooth masuk ke scale 0.9
+                    ease: "easeOut",
+                  },
                 }}
               >
                 <img
@@ -144,7 +151,9 @@ const handleClickMission = (id) => {
                   className="absolute z-20 p-3 mt-2 text-xs text-yellow-100 border border-yellow-700 rounded shadow-lg top-full w-44 bg-black/80 backdrop-blur-md"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <p className="mb-1 font-bold text-amber-400">{mission.title}</p>
+                  <p className="mb-1 font-bold text-amber-400">
+                    {mission.title}
+                  </p>
                   <p className="leading-snug">{mission.info}</p>
                 </motion.div>
               )}
@@ -160,12 +169,13 @@ const handleClickMission = (id) => {
             height: size.height * 0.3,
             fontSize: size.width < 400 ? "0.75rem" : "1rem",
             fontFamily: "Cinzel, serif",
-            textShadow: "0 0 20px rgba(247,165,77, 0.6), 0 0 40px rgba(251, 191, 36, 0.4)",
+            textShadow:
+              "0 0 20px rgba(247,165,77, 0.6), 0 0 40px rgba(251, 191, 36, 0.4)",
           }}
           animate={{ scale: [1, 1.03, 1] }}
           transition={{
             repeat: Infinity,
-            duration: 2,
+            duration: 5,
             ease: "easeInOut",
           }}
         >
