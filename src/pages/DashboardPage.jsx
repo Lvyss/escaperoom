@@ -8,16 +8,23 @@ const DashboardPage = () => {
   const navigate = useNavigate();
   const { resetTimer } = useContext(TimerContext);
   const [showInfoId, setShowInfoId] = useState(null);
+  const [introMission, setIntroMission] = useState(null); // popup pengantar
 
-const handleClickMission = (id) => {
-  localStorage.setItem(`score_m${id}`, 0);
-  resetTimer();
-  navigate(`/puzzle/${id}`, { state: { fromDashboard: true } });
-};
+  // Klik tombol misi → tampilkan popup pengantar
+  const handleClickMission = (mission) => {
+    setIntroMission(mission);
+  };
 
+  // Tombol lanjut di popup → mulai misi
+  const startMission = () => {
+    if (!introMission) return;
+    localStorage.setItem(`score_m${introMission.id}`, 0);
+    resetTimer();
+    navigate(`/puzzle/${introMission.id}`, { state: { fromDashboard: true } });
+    setIntroMission(null);
+  };
 
-
-  // Detect click luar popup
+  // Detect click luar popup info
   useEffect(() => {
     const closePopup = () => setShowInfoId(null);
     window.addEventListener("click", closePopup);
@@ -42,7 +49,7 @@ const handleClickMission = (id) => {
   }, []);
 
   const relativeRadius = isMobile ? 0.4 : 0.42;
-  const buttonRatio = isMobile ? 0.18 : 0.2; // Ukuran tombol proporsional
+  const buttonRatio = isMobile ? 0.18 : 0.2;
 
   return (
     <div className="relative h-[100svh] bg-[#0d0f1a] overflow-hidden flex items-center justify-center font-[Cinzel]">
@@ -93,7 +100,7 @@ const handleClickMission = (id) => {
             >
               {/* Tombol Misi */}
               <motion.button
-                onClick={() => handleClickMission(mission.id)}
+                onClick={() => handleClickMission(mission)}
                 className="aspect-square rounded-full border border-[rgba(245,226,198,1)] shadow-lg overflow-hidden bg-black/30 backdrop-blur-md relative"
                 style={{
                   width: btnSize,
@@ -106,7 +113,7 @@ const handleClickMission = (id) => {
                   rotate: [-3, 3, -3],
                 }}
                 whileHover={{
-                  scale: 0.9, // Mengecil saat hover
+                  scale: 0.9,
                 }}
                 transition={{
                   rotate: {
@@ -115,7 +122,7 @@ const handleClickMission = (id) => {
                     ease: "easeInOut",
                   },
                   scale: {
-                    duration: 0.2, // Smooth masuk ke scale 0.9
+                    duration: 0.2,
                     ease: "easeOut",
                   },
                 }}
@@ -153,9 +160,7 @@ const handleClickMission = (id) => {
                   className="absolute z-20 p-3 mt-2 text-xs text-yellow-100 border border-yellow-700 rounded shadow-lg top-full w-44 bg-black/80 backdrop-blur-md"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <p className="mb-1 font-bold text-amber-400">
-                    {mission.title}
-                  </p>
+                  <p className="mb-1 font-bold text-amber-400">{mission.title}</p>
                   <p className="leading-snug">{mission.info}</p>
                 </motion.div>
               )}
@@ -172,7 +177,7 @@ const handleClickMission = (id) => {
             fontSize: size.width < 400 ? "0.75rem" : "1rem",
             fontFamily: "Cinzel, serif",
             textShadow:
-              "0 0 20px rgba(247,165,77, 0.6), 0 0 40px rgba(251, 191, 36, 0.4)",
+              "0 0 20px rgba(247,165,77,0.6), 0 0 40px rgba(251,191,36,0.4)",
           }}
           animate={{ scale: [1, 1.03, 1] }}
           transition={{
@@ -184,6 +189,22 @@ const handleClickMission = (id) => {
           PILIH MISI
         </motion.div>
       </div>
+
+      {/* 🎬 Popup Pengantar Misi */}
+      {introMission && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+          <div className="max-w-md p-6 text-center text-yellow-100 rounded-lg bg-black/80">
+            <h2 className="mb-4 text-xl font-bold">{introMission.title}</h2>
+            <p className="mb-6">{introMission.intro}</p>
+            <button
+              onClick={startMission}
+              className="px-4 py-2 font-bold text-black bg-yellow-400 rounded hover:bg-yellow-300"
+            >
+              Lanjut
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

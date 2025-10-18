@@ -1,7 +1,8 @@
 export const missions = [
   {
     id: 1,
-    title: "Misi 1: Akun Dasar",
+    title: "Misi 1: Ruang Dasar Akutansi",
+    intro: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi, kamu bisa menemukan kunci keluar dari ruang ini.",
     info: "Latihan memahami konsep dan fungsi dasar akuntansi.",
     codes: {
       "Harta Lancar": 110,
@@ -144,9 +145,10 @@ export const missions = [
     ],
   },
 
-    {
+  {
     id: 2,
-    title: "Misi 1: Akun Dasar",
+    title: "Misi 1: Ruang Dasar Akutansi",
+    intro: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi, kamu bisa menemukan kunci keluar dari ruang ini.",
     info: "Latihan memahami konsep dan fungsi dasar akuntansi.",
     codes: {
       "Harta Lancar": 110,
@@ -291,7 +293,8 @@ export const missions = [
 
     {
     id: 3,
-    title: "Misi 1: Akun Dasar",
+    title: "Misi 1: Ruang Dasar Akutansi",
+    intro: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi, kamu bisa menemukan kunci keluar dari ruang ini.",
     info: "Latihan memahami konsep dan fungsi dasar akuntansi.",
     codes: {
       "Harta Lancar": 110,
@@ -433,11 +436,11 @@ export const missions = [
       },
     ],
   },
-
 
     {
     id: 4,
-    title: "Misi 1: Akun Dasar",
+    title: "Misi 1: Ruang Dasar Akutansi",
+    intro: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi, kamu bisa menemukan kunci keluar dari ruang ini.",
     info: "Latihan memahami konsep dan fungsi dasar akuntansi.",
     codes: {
       "Harta Lancar": 110,
@@ -579,11 +582,11 @@ export const missions = [
       },
     ],
   },
-
 
     {
     id: 5,
-    title: "Misi 1: Akun Dasar",
+    title: "Misi 1: Ruang Dasar Akutansi",
+    intro: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi, kamu bisa menemukan kunci keluar dari ruang ini.",
     info: "Latihan memahami konsep dan fungsi dasar akuntansi.",
     codes: {
       "Harta Lancar": 110,
@@ -725,5 +728,6 @@ export const missions = [
       },
     ],
   },
+
 
 ];
