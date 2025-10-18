@@ -33,7 +33,7 @@ const HomePage = () => {
     localStorage.setItem("playerName", name);
     localStorage.setItem("playerClass", kelas);
     localStorage.setItem("score", 0);
-    navigate("/sinopsis");
+    navigate("/dashboard");
   };
 
   return (
