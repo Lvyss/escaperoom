@@ -11,10 +11,10 @@ const DashboardPage = () => {
 
 const handleClickMission = (id) => {
   localStorage.setItem(`score_m${id}`, 0);
-  localStorage.removeItem("memory_codes"); // reset kode lama
   resetTimer();
   navigate(`/puzzle/${id}`, { state: { fromDashboard: true } });
 };
+
 
 
   // Detect click luar popup

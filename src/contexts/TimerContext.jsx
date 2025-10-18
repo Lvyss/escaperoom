@@ -1,35 +1,27 @@
-import { createContext, useState, useRef } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 
 export const TimerContext = createContext();
 
 export const TimerProvider = ({ children }) => {
-  const [elapsed, setElapsed] = useState(0);         // total detik berjalan
-  const intervalRef = useRef(null);                  // id interval timer
-  const startTimeRef = useRef(null);                 // waktu mulai
+  const [elapsed, setElapsed] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
-  const startTimer = () => {
-    stopTimer(); // Pastikan tidak ada timer lama aktif
-
-    startTimeRef.current = Date.now();
-    intervalRef.current = setInterval(() => {
-      const now = Date.now();
-      const seconds = Math.floor((now - startTimeRef.current) / 1000);
-      setElapsed(seconds);
-    }, 1000);
-  };
-
-  const stopTimer = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
-  };
-
-  const resetTimer = () => {
-    stopTimer();
+  const startTimer = useCallback(() => setIsRunning(true), []);
+  const stopTimer = useCallback(() => setIsRunning(false), []);
+  const resetTimer = useCallback(() => {
     setElapsed(0);
-    startTimeRef.current = null;
-  };
+    setIsRunning(false);
+  }, []);
+
+  useEffect(() => {
+    let interval;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setElapsed((prev) => prev + 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning]);
 
   return (
     <TimerContext.Provider value={{ elapsed, startTimer, stopTimer, resetTimer }}>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { missions } from "../data/mission";
 
 const PuzzleMemorizePage = () => {
   const { missionId } = useParams();
@@ -14,19 +15,16 @@ const PuzzleMemorizePage = () => {
     const existingCodes = localStorage.getItem("memory_codes");
 
     if (fromDashboard || !existingCodes) {
-      // 🧩 Generate kode baru setiap masuk dari dashboard
-      const letters = ["A", "B", "C", "D", "E"];
-      const generated = {};
-      letters.forEach((l) => {
-        generated[l] = Math.floor(Math.random() * 900 + 100);
-      });
-      setCodes(generated);
-      localStorage.setItem("memory_codes", JSON.stringify(generated));
+      // ambil kode dari mission.js sesuai id
+      const mission = missions.find((m) => m.id === Number(missionId));
+      if (mission && mission.codes) {
+        setCodes(mission.codes);
+        localStorage.setItem("memory_codes", JSON.stringify(mission.codes));
+      }
     } else {
-      // 🔁 Gunakan kode lama kalau bukan dari dashboard
       setCodes(JSON.parse(existingCodes));
     }
-  }, [location.state]);
+  }, [location.state, missionId]);
 
   useEffect(() => {
     if (timeLeft <= 0) {
@@ -51,15 +49,15 @@ const PuzzleMemorizePage = () => {
         🧠 Hafalkan Kode Berikut!
       </motion.h1>
 
-      <div className="grid grid-cols-5 gap-4 mb-4">
-        {Object.entries(codes).map(([letter, num]) => (
+      <div className="grid grid-cols-1 gap-4 mb-4 sm:grid-cols-2 md:grid-cols-3">
+        {Object.entries(codes).map(([label, value]) => (
           <motion.div
-            key={letter}
-            whileHover={{ scale: 1.1 }}
-            className="p-4 border border-yellow-500 rounded-lg shadow-lg bg-black/40 backdrop-blur-md"
+            key={label}
+            whileHover={{ scale: 1.05 }}
+            className="p-4 text-left border border-yellow-500 rounded-lg shadow-lg bg-black/40 backdrop-blur-md w-60"
           >
-            <p className="text-lg font-bold">{letter}</p>
-            <p className="text-2xl text-amber-400">{num}</p>
+            <p className="text-base font-semibold text-amber-300">{label}</p>
+            <p className="mt-1 text-xl text-yellow-100">{value}</p>
           </motion.div>
         ))}
       </div>

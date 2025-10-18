@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -10,42 +10,36 @@ const PuzzleQuestionPage = () => {
   const [question, setQuestion] = useState("");
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [answer, setAnswer] = useState("");
-  const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
-    const saved = localStorage.getItem("memory_codes");
-    if (!saved) {
-      navigate(`/puzzle/${missionId}`);
-      return;
+    const storedCodes = localStorage.getItem("memory_codes");
+    if (storedCodes) {
+      const parsed = JSON.parse(storedCodes);
+      setCodes(parsed);
+      generateQuestion(parsed);
     }
-
-    const parsed = JSON.parse(saved);
-    setCodes(parsed);
-
-    const letters = Object.keys(parsed);
-    const randomLetter = letters[Math.floor(Math.random() * letters.length)];
-    setQuestion(`Berapa angka untuk huruf ${randomLetter}?`);
-    setCorrectAnswer(parsed[randomLetter].toString());
   }, []);
+
+  const generateQuestion = (data) => {
+    const keys = Object.keys(data);
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+    setQuestion(`Berapa kode untuk ${randomKey}?`);
+    setCorrectAnswer(data[randomKey].toString());
+  };
 
   const handleSubmit = () => {
     const isCorrect = answer.trim() === correctAnswer;
     if (isCorrect) {
-      setFeedback("✅ Benar! Kamu bisa lanjut ke misi utama...");
-      setTimeout(() => {
-        localStorage.removeItem("memory_codes");
-        navigate(`/mission/${missionId}`);
-      }, 1000);
+      alert("✅ Benar! Kamu bisa lanjut ke misi utama.");
+      navigate(`/mission/${missionId}`);
     } else {
-      setFeedback("❌ Salah! Kembali ke halaman hafalan...");
-      setTimeout(() => {
-        navigate(`/puzzle/${missionId}`, { state: { fromDashboard: false } });
-      }, 1200);
+      alert("❌ Salah. Kembali hafalkan dulu ya!");
+      navigate(`/puzzle/${missionId}`, { state: { fromDashboard: false } });
     }
   };
 
   return (
-    <div className="h-[100svh] bg-[#0d0f1a] text-yellow-200 flex flex-col items-center justify-center font-[Cinzel]">
+    <div className="h-[100svh] bg-[#0d0f1a] flex flex-col items-center justify-center text-yellow-200 font-[Cinzel]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -56,27 +50,16 @@ const PuzzleQuestionPage = () => {
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
           className="px-3 py-2 text-center text-yellow-200 border border-yellow-500 rounded bg-black/40"
-          placeholder="Tulis jawabanmu..."
+          placeholder="Tulis jawabannya..."
         />
         <div className="mt-4">
           <button
             onClick={handleSubmit}
-            className="px-4 py-2 font-bold text-black bg-yellow-500 rounded hover:bg-yellow-400"
+            className="px-4 py-2 font-bold text-black transition-all bg-yellow-500 rounded hover:bg-yellow-400"
           >
             Kirim Jawaban
           </button>
         </div>
-        {feedback && (
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className={`mt-4 text-lg ${
-              feedback.includes("✅") ? "text-green-400" : "text-red-400"
-            }`}
-          >
-            {feedback}
-          </motion.p>
-        )}
       </motion.div>
     </div>
   );
