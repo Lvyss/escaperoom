@@ -9,11 +9,13 @@ const DashboardPage = () => {
   const { resetTimer } = useContext(TimerContext);
   const [showInfoId, setShowInfoId] = useState(null);
 
-  const handleClickMission = (id) => {
-    localStorage.setItem(`score_m${id}`, 0);
-    resetTimer(); // ⏱ reset waktu ketika mulai misi baru
-    navigate(`/puzzle/${id}`);
-  };
+const handleClickMission = (id) => {
+  localStorage.setItem(`score_m${id}`, 0);
+  localStorage.removeItem("memory_codes"); // reset kode lama
+  resetTimer();
+  navigate(`/puzzle/${id}`, { state: { fromDashboard: true } });
+};
+
 
   // Detect click luar popup
   useEffect(() => {
