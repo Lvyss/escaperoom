@@ -2,6 +2,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { missions } from "../data/mission";
 import { useContext, useEffect } from "react";
 import { TimerContext } from "../contexts/TimerContext";
+import { motion } from "framer-motion";
 
 const ResultPage = () => {
   const { elapsed, stopTimer } = useContext(TimerContext);
@@ -16,7 +17,7 @@ const ResultPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    stopTimer(); // ⛔ Stop timer saat halaman ini diakses
+    stopTimer();
   }, [stopTimer]);
 
   const formatTime = (seconds) => {
@@ -28,14 +29,14 @@ const ResultPage = () => {
 
   if (!mission) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-red-100 text-red-800 font-semibold text-center">
+      <div className="h-[100svh] flex items-center justify-center bg-red-100 text-red-800 font-semibold text-center">
         <div className="p-6 bg-white rounded shadow">Misi tidak ditemukan!</div>
       </div>
     );
   }
 
   return (
-    <div className="relative min-h-screen bg-[#0d0f1a] overflow-hidden flex items-center justify-center px-4 font-[Cinzel]">
+    <div className="relative h-[100svh] bg-[#0d0f1a] overflow-hidden flex items-center justify-center px-4 font-[Cinzel]">
       {/* 🌌 Background */}
       <div className="absolute inset-0 z-0">
         <img
@@ -47,54 +48,125 @@ const ResultPage = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ffb84d33] to-[#0d0f1a] z-0" />
       <div className="absolute inset-0 bg-[url('/img/fog.png')] bg-cover opacity-10 z-0" />
 
-      {/* 📜 Sertifikat / Hasil */}
-      <div
-        className="relative z-10 bg-white/5 backdrop-blur-md border border-yellow-900 rounded-2xl shadow-[0_0_80px_rgba(247,165,77,0.15)] px-6 py-8 w-full max-w-md text-center text-yellow-100"
+      {/* ✨ Aura Effect */}
+      <motion.div
+        className="absolute z-0 rounded-full border border-[rgba(245,226,198,0.3)]"
+
+      />
+
+      {/* 📜 Compact Result Card */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="relative z-10 w-full max-w-sm p-6 border border-[rgba(245,226,198,0.5)] rounded-xl bg-black/40 backdrop-blur-md text-center"
         style={{
-          backgroundImage: "url('/img/parchment.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
+          boxShadow: "0 0 30px rgba(247,165,77,0.3), 0 0 60px rgba(251,191,36,0.15)",
         }}
       >
-        <h2
-          className="text-2xl font-extrabold mb-6 tracking-wider uppercase"
-          style={{
-            color: "#f5e6c6",
-            textShadow:
-              "0 0 15px rgba(255,215,140,0.4), 0 0 35px rgba(255,165,0,0.2)",
-          }}
+        {/* Header */}
+        <motion.h2
+          className="mb-4 text-xl font-bold text-yellow-200"
+          initial={{ y: -20 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.2 }}
         >
-          🧩 Hasil Misi {missionId}
-        </h2>
+          🏆 Hasil Misi {missionId}
+        </motion.h2>
 
-        <div className="space-y-3 text-sm md:text-base">
-          <p>
-            Agen Terdaftar: <br />
-            <span className="text-lg text-white font-bold">{name}</span>
-          </p>
-          <p>
-            Kelas Rahasia: <br />
-            <span className="text-white">{kelas}</span>
-          </p>
-          <p>
-            Skor Keberhasilan: <br />
-            <span className="text-amber-300 text-lg font-bold">
-              {score} / {mission.questions.length}
+        {/* Results Grid - Compact */}
+        <div className="mb-6 space-y-3">
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3 }}
+            className="flex items-center justify-between p-2 border rounded-lg border-amber-500/30 bg-black/20"
+          >
+            <span className="text-xs text-amber-300">Agen:</span>
+            <span className="ml-2 text-sm font-bold text-white truncate">{name}</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex items-center justify-between p-2 border rounded-lg border-amber-500/30 bg-black/20"
+          >
+            <span className="text-xs text-amber-300">Kelas:</span>
+            <span className="text-sm text-white">{kelas}</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex items-center justify-between p-2 border rounded-lg border-amber-500/30 bg-black/20"
+          >
+            <span className="text-xs text-amber-300">Skor:</span>
+            <span className="text-sm font-bold text-amber-300">
+              {score}/{mission.questions.length}
             </span>
-          </p>
-          <p>
-            Waktu Penyelesaian: <br />
-            <span className="text-white font-semibold">{formatTime(elapsed)}</span>
-          </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6 }}
+            className="flex items-center justify-between p-2 border rounded-lg border-amber-500/30 bg-black/20"
+          >
+            <span className="text-xs text-amber-300">Waktu:</span>
+            <span className="text-sm font-bold text-white">{formatTime(elapsed)}</span>
+          </motion.div>
         </div>
 
-        <button
-          onClick={() => navigate("/dashboard")}
-          className="mt-8 px-6 py-2 text-sm font-bold text-black bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all"
+        {/* Score Circle */}
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.7, type: "spring" }}
+          className="relative flex items-center justify-center w-20 h-20 mx-auto mb-16 border-2 rounded-full border-amber-400"
+          style={{
+            boxShadow: "0 0 20px rgba(247,165,77,0.5)",
+            background: "linear-gradient(135deg, rgba(247,165,77,0.1), rgba(251,191,36,0.05))"
+          }}
         >
-          🔙 Kembali ke Peta Labirin
-        </button>
-      </div>
+          <span className="text-2xl font-bold text-amber-300">{score}</span>
+          <div className="absolute text-xs text-amber-200 -bottom-6">
+            dari {mission.questions.length}
+          </div>
+        </motion.div>
+
+        {/* Action Button */}
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          whileHover={{ 
+            scale: 1.05,
+            boxShadow: "0 0 20px rgba(247,165,77,0.4)"
+          }}
+          whileTap={{ scale: 0.95 }}
+          onClick={() => navigate("/dashboard")}
+          className="w-full py-2.5 text-sm font-bold text-black bg-amber-500 rounded-lg border border-amber-300 hover:bg-amber-400 transition-all"
+          style={{
+            boxShadow: "0 0 15px rgba(247,165,77,0.3)",
+          }}
+        >
+          🗺️ Kembali ke Dashboard
+        </motion.button>
+
+        {/* Mini Progress */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="flex items-center justify-center gap-2 mt-4 text-xs text-amber-300"
+        >
+          <span>Misi {missionId} Selesai</span>
+          <div className="w-1 h-1 bg-amber-500 rounded-full shadow-[0_0_8px_rgba(247,165,77,0.6)]"></div>
+          <span>{Math.round((score / mission.questions.length) * 100)}%</span>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

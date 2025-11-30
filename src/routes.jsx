@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
-import SinopsisPage from './pages/SinopsisPage';
 import DashboardPage from './pages/DashboardPage';
 import PuzzleMemorizePage from './pages/PuzzleMemorizePage';
 import PuzzleQuestionPage from './pages/PuzzleQuestionPage';
@@ -11,7 +10,6 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/sinopsis" element={<SinopsisPage />} />
       <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/puzzle/:missionId" element={<PuzzleMemorizePage />} />
 <Route path="/puzzle-question/:missionId" element={<PuzzleQuestionPage />} />

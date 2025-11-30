@@ -8,20 +8,12 @@ const DashboardPage = () => {
   const navigate = useNavigate();
   const { resetTimer } = useContext(TimerContext);
   const [showInfoId, setShowInfoId] = useState(null);
-  const [introMission, setIntroMission] = useState(null); // popup pengantar
 
-  // Klik tombol misi → tampilkan popup pengantar
+  // Langsung mulai misi tanpa popup pengantar
   const handleClickMission = (mission) => {
-    setIntroMission(mission);
-  };
-
-  // Tombol lanjut di popup → mulai misi
-  const startMission = () => {
-    if (!introMission) return;
-    localStorage.setItem(`score_m${introMission.id}`, 0);
+    localStorage.setItem(`score_m${mission.id}`, 0);
     resetTimer();
-    navigate(`/puzzle/${introMission.id}`, { state: { fromDashboard: true } });
-    setIntroMission(null);
+    navigate(`/puzzle/${mission.id}`, { state: { fromDashboard: true } });
   };
 
   // Detect click luar popup info
@@ -189,22 +181,6 @@ const DashboardPage = () => {
           PILIH MISI
         </motion.div>
       </div>
-
-      {/* 🎬 Popup Pengantar Misi */}
-      {introMission && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
-          <div className="max-w-md p-6 text-center text-yellow-100 rounded-lg bg-black/80">
-            <h2 className="mb-4 text-xl font-bold">{introMission.title}</h2>
-            <p className="mb-6">{introMission.intro}</p>
-            <button
-              onClick={startMission}
-              className="px-4 py-2 font-bold text-black bg-yellow-400 rounded hover:bg-yellow-300"
-            >
-              Lanjut
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

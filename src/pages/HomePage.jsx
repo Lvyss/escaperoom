@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -8,19 +8,54 @@ const HomePage = () => {
   const [stage, setStage] = useState("loading");
   const [fadeOut, setFadeOut] = useState(false);
   const [bgDimmed, setBgDimmed] = useState(false);
+  const [audioPlayed, setAudioPlayed] = useState(false);
+  const [isMuted, setIsMuted] = useState(false); // 👈 State untuk mute
   const navigate = useNavigate();
   const isFormValid = name.trim() && kelas.trim();
+
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const timer1 = setTimeout(() => setStage("intro"), 3000);
     const timer2 = setTimeout(() => setBgDimmed(true), 2500);
+
+    // Setup audio dari awal
+    if (audioRef.current) {
+      audioRef.current.volume = 0.4;
+    }
+
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
   }, []);
 
+  // 👇 Fungsi play audio yang bisa dipanggil dari mana aja
+  const playAudio = () => {
+    if (audioRef.current && !audioPlayed) {
+      audioRef.current.play()
+        .then(() => {
+          console.log("🎵 Audio started!");
+          setAudioPlayed(true);
+          setIsMuted(false); // 👈 Pastikan unmute saat pertama kali play
+        })
+        .catch(error => {
+          console.log("Audio play failed:", error);
+        });
+    }
+  };
+
+  // 👇 Fungsi toggle mute/unmute
+  const toggleMute = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = !audioRef.current.muted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  // 👇 Saat user klik untuk mulai, langsung play audio
   const handleStartGame = () => {
+    playAudio();
     setFadeOut(true);
     setTimeout(() => {
       setStage("form");
@@ -33,16 +68,38 @@ const HomePage = () => {
     localStorage.setItem("playerName", name);
     localStorage.setItem("playerClass", kelas);
     localStorage.setItem("score", 0);
+    
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+    
     navigate("/dashboard");
   };
 
   return (
-    <div className="relative h-[100svh] flex flex-col bg-[#0d0f1a] overflow-hidden px-4">
+    <div 
+      className="relative h-[100svh] flex flex-col bg-[#0d0f1a] overflow-hidden px-4"
+      onClick={() => {
+        // 👇 Play audio saat user klik di mana saja di halaman
+        if (stage === "intro" && !audioPlayed) {
+          playAudio();
+        }
+      }}
+    >
 
-      {/* 🌌 Background utama dengan transition halus */}
-      <div
-        className={`absolute inset-0 z-0 transition-all  ease-[cubic-bezier(0.4,0,0.2,1)]`}
+      {/* 🎵 Audio Element - siap play */}
+      <audio 
+        ref={audioRef} 
+        loop 
+        preload="auto"
+        className="hidden"
       >
+        <source src="/audio/home.mp3" type="audio/mpeg" />
+        Browser Anda tidak mendukung elemen audio.
+      </audio>
+
+      {/* 🌌 Background utama */}
+      <div className={`absolute inset-0 z-0 transition-all ease-[cubic-bezier(0.4,0,0.2,1)]`}>
         <img
           src="/img/bg_home.jpg"
           alt="background"
@@ -55,7 +112,60 @@ const HomePage = () => {
       {/* Kabut gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ffb84d22] to-[#0d0f1a] z-0" />
 
-      {/* Fade black (saat transisi ke form) */}
+      {/* 🎵 Audio Control Button */}
+      <motion.button
+        onClick={toggleMute}
+        className="absolute z-50 p-3 transition-all border rounded-full top-4 right-4 bg-black/40 backdrop-blur-md border-amber-500/50 hover:bg-amber-500/20 group"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        style={{
+          boxShadow: "0 0 15px rgba(247,165,77,0.4)"
+        }}
+        title={isMuted ? "Unmute musik" : "Mute musik"}
+      >
+        {isMuted ? (
+          <div className="flex flex-col items-center">
+            <span className="text-lg text-amber-300">🔇</span>
+            <span className="text-[10px] text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity mt-1">
+              UNMUTE
+            </span>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center">
+            <span className="text-lg text-amber-300">🔊</span>
+            <span className="text-[10px] text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity mt-1">
+              MUTE
+            </span>
+          </div>
+        )}
+      </motion.button>
+
+      {/* 🎵 Audio Status Indicator */}
+      {!audioPlayed && stage === "intro" && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute z-50 px-3 py-2 text-xs border rounded-lg top-16 right-4 text-amber-300 bg-black/40 backdrop-blur-md border-amber-500/50"
+          style={{
+            boxShadow: "0 0 15px rgba(247,165,77,0.3)"
+          }}
+        >
+          🎵 Klik di mana saja untuk musik
+        </motion.div>
+      )}
+
+      {/* 🎵 Audio Playing Indicator */}
+      {audioPlayed && !isMuted && (
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="absolute z-50 px-3 py-1 text-xs border rounded-full top-16 right-4 text-amber-300 bg-black/40 backdrop-blur-md border-amber-500/50"
+        >
+          🔊 Musik aktif
+        </motion.div>
+      )}
+
+      {/* Fade black */}
       {fadeOut && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -81,8 +191,7 @@ const HomePage = () => {
             className="-mt-2 md:-mt-4 text-[2rem] md:text-5xl font-extrabold tracking-[0.2em] relative text-center"
             style={{
               color: "rgba(245,226,198,1)",
-              textShadow:
-                "0 0 20px rgba(247,165,77,0.6), 0 0 20px rgba(247,165,77,0.5), 0 0 40px rgba(247,165,77,0.4)",
+              textShadow: "0 0 20px rgba(247,165,77,0.6), 0 0 20px rgba(247,165,77,0.5), 0 0 40px rgba(247,165,77,0.4)",
               fontFamily: "Cinzel, serif",
             }}
             initial={stage === "loading" ? { opacity: 0 } : false}
@@ -118,6 +227,16 @@ const HomePage = () => {
               <span className="mt-4 text-sm font-light tracking-widest text-yellow-100 select-none opacity-20 animate-pulse">
                 Ketuk layar untuk memulai
               </span>
+              {!audioPlayed && (
+                <motion.span 
+                  className="mt-2 text-xs text-amber-400 animate-pulse"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1 }}
+                >
+                  (Musik akan otomatis diputar)
+                </motion.span>
+              )}
             </motion.div>
           )}
 
@@ -136,8 +255,6 @@ const HomePage = () => {
                 placeholder="Nama Agen"
                 style={{
                   fontFamily: "Cinzel, serif",
-                  textShadow:
-                    "0 0 10px #facc15, 0 0 20px #fbbf24, 0 0 40px #f59e0b",
                 }}
                 className="w-full px-4 py-2 text-sm italic tracking-wide text-center text-white transition-all duration-300 border border-yellow-900 rounded-[5px] bg-black/30 placeholder:text-yellow-300 placeholder:text-[12px] placeholder:opacity-60 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-black"
               />
@@ -149,8 +266,6 @@ const HomePage = () => {
                 placeholder="Kelas"
                 style={{
                   fontFamily: "Cinzel, serif",
-                  textShadow:
-                    "0 0 10px #facc15, 0 0 20px #fbbf24, 0 0 40px #f59e0b",
                 }}
                 className="italic w-full px-4 py-2 text-sm tracking-wide text-center text-white transition-all duration-300 border border-yellow-900 rounded-[5px] bg-black/30 placeholder:text-yellow-300 placeholder:opacity-60 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 focus:ring-offset-black"
               />
