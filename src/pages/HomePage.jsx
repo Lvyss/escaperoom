@@ -198,7 +198,7 @@ const HomePage = () => {
             animate={stage === "loading" ? { opacity: 1 } : false}
             transition={{ duration: 1.2, delay: 0.6 }}
           >
-            ESCAPE ROOM
+            AccEscape
           </motion.h1>
         </div>
 
