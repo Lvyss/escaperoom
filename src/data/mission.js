@@ -3,7 +3,7 @@ export const missions = [
     id: 1,
     title: "Misi 1: Ruang Dasar Akutansi",
     intro: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi, kamu bisa menemukan kunci keluar dari ruang ini.",
-    info: "Latihan memahami konsep dan fungsi dasar akuntansi.",
+    info: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi dengan BENAR, kamu bisa KELUAR dari ruang ini. Namun sebelum memasuki ruang arsip kuno tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL  sebagai syarat untuk membuka pintu masuk.",
     codes: {
       "Harta Lancar": 110,
       "Gedung": 124,
@@ -151,7 +151,7 @@ export const missions = [
     id: 2,
     title: "Misi 2: Kantor Rahasia Divisi Akuntansi",
     intro: "Kamu berhasil keluar dari ruang arsip kuno dan kini memasuki ruang kantor dengan banyak ruang yang bertuliskan 'Keuangan', 'Pajak', 'Auditor', dan 'Manajemen'. Hanya dengan memahami bidang-bidang akuntansi dalam lembaga, kamu bisa menemukan pintu keluar yang benar.",
-    info: "Memahami berbagai bidang spesialisasi akuntansi",
+    info: "Kamu berhasil keluar dari ruang arsip kuno dan kini memasuki ruang kantor dengan banyak ruang yang bertuliskan “Keuangan”, “Pajak”, “Auditor”, dan “Manajemen”. Hanya dengan memahami bidang-bidang akuntansi dalam lembaga, kamu bisa menemukan pintu keluar yang benar. Namun sebelum memasuki ruang kantor tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL  sebagai syarat untuk membuka pintu masuk.",
     codes: {
       "Piutang": 112,
       "Tanah": 121,
@@ -298,7 +298,7 @@ export const missions = [
   id: 3,
   title: "Misi 3: Ruang Transaksi & Dokumen Sumber",
   intro: "Kamu masuk ke ruang kecil dengan tumpukan bukti transaksi. Lampu meredup. Di setiap meja terdapat dokumen dengan kode rahasia. Kamu harus bisa mengidentifikasi jenis transaksi dan dokumen sumber untuk melanjutkan.",
-  info: "Mengidentifikasi dokumen sumber transaksi",
+  info: "Kamu masuk ke ruang kecil dengan tumpukan bukti transaksi. Lampu meredup. Di setiap meja terdapat dokumen dengan kode rahasia. Kamu harus bisa mengidentifikasi jenis transaksi dan dokumen sumber untuk melanjutkan. Namun sebelum memasuki ruang kecil tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL  sebagai syarat untuk membuka pintu masuk.",
   codes: {
     "Kas": 111,
     "Peralatan": 122,
@@ -445,7 +445,7 @@ export const missions = [
   id: 4,
   title: "Misi 4: Meja Jurnal Misterius",
   intro: "Kamu memasuki ruangan dengan satu meja panjang berisi banyak jurnal. Di dinding, ada buku besar raksasa. Pintu tidak akan terbuka sampai kamu bisa membuktikan bahwa kamu memahami proses pencatatan transaksi dan pemindahan ke buku besar.",
-  info: "Memahami pencatatan jurnal dan posting ke buku besar",
+  info: "Kamu memasuki ruangan dengan satu meja panjang berisi banyak jurnal. Di dinding, ada buku besar raksasa. Pintu tidak akan terbuka sampai kamu bisa membuktikan bahwa kamu memahami proses pencatatan transaksi dan pemindahan ke buku besar. Namun sebelum memasuki ruangan  tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL  sebagai syarat untuk membuka pintu masuk.",
   codes: {
     "Kas": 111,
     "Peralatan": 122,
@@ -592,7 +592,7 @@ export const missions = [
   id: 5,
   title: "Misi 5: Neraca Saldo & Laporan Keuangan Sederhana",
   intro: "Akhirnya kamu tiba di ruangan terbesar. Ada papan besar dengan daftar saldo akun, tetapi sebagian angka hilang. Untuk keluar, kamu harus menyusun neraca saldo dan laporan keuangan sederhana berdasarkan bukti transaksi yang tersedia.",
-  info: "Menyusun neraca saldo dan laporan keuangan sederhana",
+  info: "Akhirnya kamu tiba di ruangan terbesar. Ada papan besar dengan daftar saldo akun, tetapi sebagian angka hilang. Untuk keluar, kamu harus menyusun neraca saldo dan laporan keuangan sederhana berdasarkan bukti transaksi yang tersedia. Namun sebelum memasuki ruangan besar tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL terakhir sebagai syarat untuk membuka pintu masuk.",
   codes: {
     "Tanah": 121,
     "Harta tetap": 120,

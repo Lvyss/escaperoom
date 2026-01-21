@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { missions } from "../data/mission";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TimerContext } from "../contexts/TimerContext";
 import { motion } from "framer-motion";
 
@@ -8,6 +8,7 @@ const ResultPage = () => {
   const { elapsed, stopTimer } = useContext(TimerContext);
   const [params] = useSearchParams();
   const missionId = parseInt(params.get("mission") || "1");
+  const [isMuted, setIsMuted] = useState(false); // ✅ Tambah state untuk mute
 
   const mission = missions.find((m) => m.id === missionId);
   const name = localStorage.getItem("playerName");
@@ -16,9 +17,59 @@ const ResultPage = () => {
 
   const navigate = useNavigate();
 
+  // ✅ Initialize audio saat masuk halaman
   useEffect(() => {
+    console.log('🎵 ResultPage mounted, checking audio...');
+    
+    // Stop timer
     stopTimer();
+    
+    // Check atau buat global audio
+    if (!window.globalAudio) {
+      console.log('🎵 Initializing global audio in result page...');
+      window.globalAudio = new Audio('/audio/home.mp3');
+      window.globalAudio.loop = true;
+      window.globalAudio.volume = 0.3;
+      window.globalAudio.preload = 'auto';
+    }
+    
+    // Update mute state
+    if (window.globalAudio) {
+      setIsMuted(window.globalAudio.muted);
+      
+      // Try to play jika sebelumnya playing
+      const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
+      if (wasPlaying && window.globalAudio.paused) {
+        console.log('🎵 Resuming audio from localStorage...');
+        window.globalAudio.play().catch(e => {
+          console.log('Could not resume audio:', e);
+        });
+      }
+    }
   }, [stopTimer]);
+
+  // ✅ Toggle mute function
+  const toggleMute = () => {
+    if (window.globalAudio) {
+      window.globalAudio.muted = !window.globalAudio.muted;
+      setIsMuted(window.globalAudio.muted);
+      console.log('🔊 Mute toggled:', window.globalAudio.muted);
+    }
+  };
+
+  // ✅ Play audio manually
+  const playAudioManual = () => {
+    if (window.globalAudio) {
+      window.globalAudio.play()
+        .then(() => {
+          console.log('🎵 Manual play successful in result page');
+          localStorage.setItem('audioPlaying', 'true');
+        })
+        .catch(error => {
+          console.log('Manual play failed:', error);
+        });
+    }
+  };
 
   const formatTime = (seconds) => {
     if (!seconds || isNaN(seconds)) return "0:00";
@@ -26,6 +77,9 @@ const ResultPage = () => {
     const s = seconds % 60;
     return `${m}:${s.toString().padStart(2, "0")}`;
   };
+
+  // ✅ Check audio playing state
+  const isPlaying = window.globalAudio && !window.globalAudio.paused;
 
   if (!mission) {
     return (
@@ -48,10 +102,66 @@ const ResultPage = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#ffb84d33] to-[#0d0f1a] z-0" />
       <div className="absolute inset-0 bg-[url('/img/fog.png')] bg-cover opacity-10 z-0" />
 
+      {/* 🔊 Global Audio Controls - KANAN ATAS */}
+      <motion.button
+        onClick={toggleMute}
+        className="absolute z-50 p-3 transition-all border rounded-full top-4 right-4 bg-black/40 backdrop-blur-md border-amber-500/50 hover:bg-amber-500/20 group"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        style={{
+          boxShadow: "0 0 15px rgba(247,165,77,0.4)"
+        }}
+      >
+        {isMuted ? (
+          <div className="flex flex-col items-center">
+            <span className="text-lg text-amber-300">🔇</span>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center">
+            <span className="text-lg text-amber-300">🔊</span>
+          </div>
+        )}
+      </motion.button>
+
+  
+      {/* Manual Play Button (optional) */}
+      {!isPlaying && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute z-50 px-3 py-2 text-xs border rounded-lg top-16 right-4 text-amber-300 bg-black/40 backdrop-blur-md border-amber-500/50"
+          style={{
+            boxShadow: "0 0 15px rgba(247,165,77,0.3)"
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <button
+              onClick={playAudioManual}
+              className="px-2 py-1 text-xs font-medium transition-colors rounded bg-amber-500/30 hover:bg-amber-500/50"
+            >
+              ▶️ Play Music
+            </button>
+          </div>
+        </motion.div>
+      )}
+
       {/* ✨ Aura Effect */}
       <motion.div
         className="absolute z-0 rounded-full border border-[rgba(245,226,198,0.3)]"
-
+        style={{
+          width: "80%",
+          height: "80%",
+          boxShadow: "0 0 100px rgba(247,165,77,0.15)",
+        }}
+        animate={{
+          scale: [1, 1.02, 1],
+          opacity: [0.2, 0.3, 0.2],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       />
 
       {/* 📜 Compact Result Card */}

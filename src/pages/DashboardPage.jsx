@@ -1,27 +1,110 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { missions } from "../data/mission";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { TimerContext } from "../contexts/TimerContext";
 
 const DashboardPage = () => {
   const navigate = useNavigate();
   const { resetTimer } = useContext(TimerContext);
-  const [showInfoId, setShowInfoId] = useState(null);
+  const [popupData, setPopupData] = useState(null);
+  const [isMuted, setIsMuted] = useState(false);
+  
+  // Ref untuk popup container
+  const popupRef = useRef(null);
 
-  // Langsung mulai misi tanpa popup pengantar
-  const handleClickMission = (mission) => {
-    localStorage.setItem(`score_m${mission.id}`, 0);
-    resetTimer();
-    navigate(`/puzzle/${mission.id}`, { state: { fromDashboard: true } });
+  // Initialize audio saat masuk dashboard
+  useEffect(() => {
+    console.log('🎵 Dashboard mounted, checking audio...');
+    
+    // Check atau buat global audio
+    if (!window.globalAudio) {
+      console.log('🎵 Initializing global audio in dashboard...');
+      window.globalAudio = new Audio('/audio/home.mp3');
+      window.globalAudio.loop = true;
+      window.globalAudio.volume = 0.3;
+      window.globalAudio.preload = 'auto';
+    }
+    
+    // Update mute state
+    if (window.globalAudio) {
+      setIsMuted(window.globalAudio.muted);
+      
+      // Try to play jika sebelumnya playing
+      const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
+      if (wasPlaying && window.globalAudio.paused) {
+        console.log('🎵 Resuming audio from localStorage...');
+        window.globalAudio.play().catch(e => {
+          console.log('Could not resume audio:', e);
+        });
+      }
+    }
+  }, []);
+
+  // Toggle mute function
+  const toggleMute = () => {
+    if (window.globalAudio) {
+      window.globalAudio.muted = !window.globalAudio.muted;
+      setIsMuted(window.globalAudio.muted);
+      console.log('🔊 Mute toggled:', window.globalAudio.muted);
+    }
   };
 
-  // Detect click luar popup info
+  // Play audio manually
+  const playAudioManual = () => {
+    if (window.globalAudio) {
+      window.globalAudio.play()
+        .then(() => {
+          console.log('🎵 Manual play successful in dashboard');
+          localStorage.setItem('audioPlaying', 'true');
+        })
+        .catch(error => {
+          console.log('Manual play failed:', error);
+        });
+    }
+  };
+
+  // Ganti jadi popup info setelah klik misi
+  const handleClickMission = (mission) => {
+    setPopupData({
+      id: mission.id,
+      title: mission.title,
+      info: mission.info,
+      image: `/img/m${mission.id}.jpg`
+    });
+  };
+
+  // Konfirmasi mulai misi dari popup
+  const handleStartMission = () => {
+    if (!popupData) return;
+    
+    localStorage.setItem(`score_m${popupData.id}`, 0);
+    resetTimer();
+    navigate(`/puzzle/${popupData.id}`, { state: { fromDashboard: true } });
+  };
+
+  // Tutup popup
+  const handleClosePopup = () => {
+    setPopupData(null);
+  };
+
+  // Detect click luar popup
   useEffect(() => {
-    const closePopup = () => setShowInfoId(null);
-    window.addEventListener("click", closePopup);
-    return () => window.removeEventListener("click", closePopup);
-  }, []);
+    const handleClickOutside = (event) => {
+      if (popupData && popupRef.current && !popupRef.current.contains(event.target)) {
+        handleClosePopup();
+      }
+    };
+
+    const timer = setTimeout(() => {
+      document.addEventListener('mousedown', handleClickOutside);
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [popupData]);
 
   // Ref & ukuran container
   const containerRef = useRef(null);
@@ -43,6 +126,9 @@ const DashboardPage = () => {
   const relativeRadius = isMobile ? 0.4 : 0.42;
   const buttonRatio = isMobile ? 0.18 : 0.2;
 
+  // Check audio playing state
+  const isPlaying = window.globalAudio && !window.globalAudio.paused;
+
   return (
     <div className="relative h-[100svh] bg-[#0d0f1a] overflow-hidden flex items-center justify-center font-[Cinzel]">
       {/* 🌌 Background */}
@@ -55,6 +141,50 @@ const DashboardPage = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#ffb84d22] to-[#0d0f1a] z-0" />
       <div className="absolute inset-0 bg-[url('/img/bg_map.jpg')] bg-cover opacity-10 z-0" />
+
+      {/* 🔊 Global Audio Controls - KANAN ATAS */}
+      <motion.button
+        onClick={toggleMute}
+        className="absolute z-50 p-3 transition-all border rounded-full top-4 right-4 bg-black/40 backdrop-blur-md border-amber-500/50 hover:bg-amber-500/20 group"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        style={{
+          boxShadow: "0 0 15px rgba(247,165,77,0.4)"
+        }}
+        title={isMuted ? "Unmute musik" : "Mute musik"}
+      >
+        {isMuted ? (
+          <div className="flex flex-col items-center">
+            <span className="text-lg text-amber-300">🔇</span>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center">
+            <span className="text-lg text-amber-300">🔊</span>
+          </div>
+        )}
+      </motion.button>
+
+
+      {/* Manual Play Button (optional) */}
+      {!isPlaying && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="absolute z-50 px-3 py-2 text-xs border rounded-lg top-16 right-4 text-amber-300 bg-black/40 backdrop-blur-md border-amber-500/50"
+          style={{
+            boxShadow: "0 0 15px rgba(247,165,77,0.3)"
+          }}
+        >
+          <div className="flex items-center gap-2">
+            <button
+              onClick={playAudioManual}
+              className="px-2 py-1 text-xs font-medium transition-colors rounded bg-amber-500/30 hover:bg-amber-500/50"
+            >
+              ▶️ Play Music
+            </button>
+          </div>
+        </motion.div>
+      )}
 
       {/* ✨ Lingkaran Portal Aura */}
       <motion.div
@@ -130,32 +260,6 @@ const DashboardPage = () => {
                   </span>
                 </div>
               </motion.button>
-
-              {/* Tombol Info */}
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowInfoId(mission.id === showInfoId ? null : mission.id);
-                }}
-                className="mt-1 px-2 py-0.5 flex items-center gap-1 text-xs font-medium text-yellow-200 border border-yellow-500/40 rounded-md bg-black/20 backdrop-blur-sm hover:text-yellow-100 hover:border-yellow-400 hover:shadow-md transition-all"
-              >
-                <span>ℹ️</span>
-                <span>Info</span>
-              </button>
-
-              {/* Popup Info */}
-              {showInfoId === mission.id && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="absolute z-20 p-3 mt-2 text-xs text-yellow-100 border border-yellow-700 rounded shadow-lg top-full w-44 bg-black/80 backdrop-blur-md"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <p className="mb-1 font-bold text-amber-400">{mission.title}</p>
-                  <p className="leading-snug">{mission.info}</p>
-                </motion.div>
-              )}
             </div>
           );
         })}
@@ -181,6 +285,85 @@ const DashboardPage = () => {
           PILIH MISI
         </motion.div>
       </div>
+
+      {/* 🪟 POPUP INFO */}
+      <AnimatePresence>
+        {popupData && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+            <motion.div
+              ref={popupRef}
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.8, y: 20 }}
+              className="w-[90%] max-w-md bg-gradient-to-br from-[#1a1b2e] to-[#0d0f1a] border border-yellow-800 rounded-2xl shadow-2xl overflow-hidden"
+            >
+              {/* Header */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={popupData.image}
+                  alt={popupData.title}
+                  className="object-cover w-full h-full"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <h2 className="text-2xl font-bold text-yellow-200">
+                    {popupData.title}
+                  </h2>
+                  <div className="inline-block px-3 py-1 mt-2 text-sm font-semibold text-yellow-100 rounded-full bg-black/50">
+                    Misi {popupData.id}
+                  </div>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                <div className="mb-6">
+                  <h3 className="mb-2 text-lg font-bold text-amber-400">Deskripsi Misi</h3>
+                  <p className="px-2 italic leading-relaxed text-justify text-yellow-100">
+                    {popupData.info}
+                  </p>
+                </div>
+
+                {/* Stats (optional) */}
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <div className="p-3 rounded-lg bg-black/30">
+                    <div className="text-xs text-amber-300">Level Kesulitan</div>
+                    <div className="text-lg font-bold text-yellow-200">Medium</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-black/30">
+                    <div className="text-xs text-amber-300">Estimasi Waktu</div>
+                    <div className="text-lg font-bold text-yellow-200">15 menit</div>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-3">
+                  <button
+                    onClick={handleClosePopup}
+                    className="flex-1 px-4 py-3 text-sm font-medium text-yellow-200 transition-colors border border-yellow-700 rounded-lg hover:bg-yellow-900/30"
+                  >
+                    Batal
+                  </button>
+                  <button
+                    onClick={handleStartMission}
+                    className="flex-1 px-4 py-3 text-sm font-bold text-black transition-all rounded-lg shadow-lg bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-500 hover:to-yellow-600 shadow-amber-500/30"
+                  >
+                     Mulai Misi
+                  </button>
+                </div>
+              </div>
+
+              {/* Close Button */}
+              <button
+                onClick={handleClosePopup}
+                className="absolute p-2 text-yellow-200 transition-colors rounded-full top-3 right-3 hover:text-white hover:bg-black/30"
+              >
+                ✕
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

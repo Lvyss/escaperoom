@@ -6,7 +6,7 @@ import PuzzleQuestionPage from './pages/PuzzleQuestionPage';
 import MissionPage from './pages/MissionPage';
 import ResultPage from './pages/ResultPage';
 
-const AppRoutes = () => {
+const routes = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
@@ -19,4 +19,4 @@ const AppRoutes = () => {
   );
 };
 
-export default AppRoutes;
+export default routes;
