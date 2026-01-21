@@ -324,17 +324,6 @@ const DashboardPage = () => {
                   </p>
                 </div>
 
-                {/* Stats (optional) */}
-                <div className="grid grid-cols-2 gap-4 mb-6">
-                  <div className="p-3 rounded-lg bg-black/30">
-                    <div className="text-xs text-amber-300">Level Kesulitan</div>
-                    <div className="text-lg font-bold text-yellow-200">Medium</div>
-                  </div>
-                  <div className="p-3 rounded-lg bg-black/30">
-                    <div className="text-xs text-amber-300">Estimasi Waktu</div>
-                    <div className="text-lg font-bold text-yellow-200">15 menit</div>
-                  </div>
-                </div>
 
                 {/* Action Buttons */}
                 <div className="flex gap-3">
