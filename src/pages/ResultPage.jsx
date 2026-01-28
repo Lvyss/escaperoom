@@ -1,11 +1,11 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { missions } from "../data/mission";
 import { useContext, useEffect, useState } from "react";
-import { TimerContext } from "../contexts/TimerContext";
 import { motion } from "framer-motion";
+import { TimerContext } from "../contexts/TimerContext"; // ✅ TAMBAH IMPORT
 
 const ResultPage = () => {
-  const { elapsed, stopTimer } = useContext(TimerContext);
+  const { elapsed } = useContext(TimerContext); // ✅ AMBIL elapsed
   const [params] = useSearchParams();
   const missionId = parseInt(params.get("mission") || "1");
   const [isMuted, setIsMuted] = useState(false); // ✅ Tambah state untuk mute
@@ -16,13 +16,11 @@ const ResultPage = () => {
   const score = parseInt(localStorage.getItem(`score_m${missionId}`) || "0");
 
   const navigate = useNavigate();
-
+  
   // ✅ Initialize audio saat masuk halaman
   useEffect(() => {
     console.log('🎵 ResultPage mounted, checking audio...');
     
-    // Stop timer
-    stopTimer();
     
     // Check atau buat global audio
     if (!window.globalAudio) {
@@ -46,7 +44,7 @@ const ResultPage = () => {
         });
       }
     }
-  }, [stopTimer]);
+  }, []);
 
   // ✅ Toggle mute function
   const toggleMute = () => {
@@ -94,7 +92,7 @@ const ResultPage = () => {
       {/* 🌌 Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/img/bg_result.jpg"
+          src="/img/bg_result.png"
           alt="background"
           className="object-cover w-full h-full opacity-30"
         />

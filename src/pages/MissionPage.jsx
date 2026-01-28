@@ -5,7 +5,7 @@ import { TimerContext } from "../contexts/TimerContext";
 import { motion } from "framer-motion";
 
 const MissionPage = () => {
-  const { startTimer, stopTimer } = useContext(TimerContext);
+  const {  stopTimer } = useContext(TimerContext);
   const { missionId } = useParams();
   const mission = missions.find((m) => m.id === parseInt(missionId));
   const navigate = useNavigate();
@@ -18,41 +18,38 @@ const MissionPage = () => {
 
   const currentQuestion = mission.questions[currentQuestionIndex];
 
-  // ✅ Initialize audio saat masuk halaman
-  useEffect(() => {
-    console.log('🎵 MissionPage mounted, checking audio...');
+// MissionPage.js - MODIFIKASI useEffect
+useEffect(() => {
+  console.log('🎵 MissionPage mounted, checking audio...');
+  
+  // Check atau buat global audio
+  if (!window.globalAudio) {
+    console.log('🎵 Initializing global audio in mission page...');
+    window.globalAudio = new Audio('/audio/home.mp3');
+    window.globalAudio.loop = true;
+    window.globalAudio.volume = 0.3;
+    window.globalAudio.preload = 'auto';
+  }
+  
+  // Update mute state
+  if (window.globalAudio) {
+    setIsMuted(window.globalAudio.muted);
     
-    // Start timer
-    startTimer();
-    
-    // Check atau buat global audio
-    if (!window.globalAudio) {
-      console.log('🎵 Initializing global audio in mission page...');
-      window.globalAudio = new Audio('/audio/home.mp3');
-      window.globalAudio.loop = true;
-      window.globalAudio.volume = 0.3;
-      window.globalAudio.preload = 'auto';
+    // Try to play jika sebelumnya playing
+    const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
+    if (wasPlaying && window.globalAudio.paused) {
+      console.log('🎵 Resuming audio from localStorage...');
+      window.globalAudio.play().catch(e => {
+        console.log('Could not resume audio:', e);
+      });
     }
-    
-    // Update mute state
-    if (window.globalAudio) {
-      setIsMuted(window.globalAudio.muted);
-      
-      // Try to play jika sebelumnya playing
-      const wasPlaying = localStorage.getItem('audioPlaying') === 'true';
-      if (wasPlaying && window.globalAudio.paused) {
-        console.log('🎵 Resuming audio from localStorage...');
-        window.globalAudio.play().catch(e => {
-          console.log('Could not resume audio:', e);
-        });
-      }
-    }
+  }
 
-    // Cleanup timer saat komponen unmount
-    return () => {
-      stopTimer();
-    };
-  }, [startTimer, stopTimer]);
+  // HAPUS cleanup timer di sini!
+  // return () => {
+  //   stopTimer();  // JANGAN stop di sini!
+  // };
+}, []); // HAPUS stopTimer dari dependencies
 
   // ✅ Toggle mute function
   const toggleMute = () => {
@@ -77,28 +74,34 @@ const MissionPage = () => {
     }
   };
 
-  const handleSubmit = () => {
-    if (!selected) return;
-    const correct = selected.startsWith(currentQuestion.answer);
-    setIsCorrect(correct);
-    setIsAnswered(true);
+const handleSubmit = () => {
+  if (!selected) return;
+  const correct = selected.startsWith(currentQuestion.answer);
+  setIsCorrect(correct);
+  setIsAnswered(true);
 
-    if (correct) {
-      const key = `score_m${mission.id}`;
-      const current = parseInt(localStorage.getItem(key) || "0");
-      localStorage.setItem(key, current + 1);
+  if (correct) {
+    const key = `score_m${mission.id}`;
+    const current = parseInt(localStorage.getItem(key) || "0");
+    localStorage.setItem(key, current + 1);
+  }
+
+  setTimeout(() => {
+    setIsAnswered(false);
+    setSelected("");
+    
+    // ⭐ PERHATIAN: Ini kondisi yang benar!
+    if (currentQuestionIndex + 1 < mission.questions.length) {
+      // Soal belum habis, lanjut ke soal berikutnya
+      setCurrentQuestionIndex((prev) => prev + 1);
+    } else {
+      // ⏱️ INI SOAL TERAKHIR, stop timer!
+      stopTimer();
+      console.log(`⏱️ Timer dihentikan. Soal terakhir selesai.`);
+      navigate(`/result?mission=${mission.id}`);
     }
-
-    setTimeout(() => {
-      setIsAnswered(false);
-      setSelected("");
-      if (currentQuestionIndex + 1 < mission.questions.length) {
-        setCurrentQuestionIndex((prev) => prev + 1);
-      } else {
-        navigate(`/result?mission=${mission.id}`);
-      }
-    }, 1800);
-  };
+  }, 500);
+};
 
   // ✅ Check audio playing state
   const isPlaying = window.globalAudio && !window.globalAudio.paused;
@@ -108,13 +111,13 @@ const MissionPage = () => {
       {/* 🌌 Background Layers */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/img/bg_mission.jpg"
+          src="/img/bg_mission.png"
           alt="background"
-          className="object-cover w-full h-full opacity-50"
+          className="object-cover w-full h-full opacity-60"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#ffb84d22] to-[#0d0f1a] z-0" />
-      <div className="absolute inset-0 bg-[url('/img/bg_mission.jpg')] bg-cover opacity-10 z-0" />
+      <div className="absolute inset-0 bg-[url('/img/bg_mission.png')] bg-cover opacity-10 z-0" />
 
       {/* 🔊 Global Audio Controls - KANAN ATAS */}
       <motion.button

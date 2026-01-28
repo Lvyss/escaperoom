@@ -13,7 +13,7 @@ export const missions = [
       "Beban Bunga": 514,
             "Utang Pajak": 213,
     },
-    questions: [
+questions: [
       {
         number: 1,
         title: "Soal 1:Bahasa yang Dipahami Semua Orang ",
@@ -144,6 +144,201 @@ export const missions = [
         ],
         answer: "C. Penyedia informasi keuangan untuk pengambilan keputusan",
       },
+      {
+        number: 11,
+        title: "Soal 11:Dokumen di Dalam Laci Besi",
+        question:
+          "Di dalam laci besi kecil, kamu menemukan laporan keuangan yang disertai catatan:\n\"Informasi di dalam laporan ini dapat dipercaya dan bebas dari kesalahan besar.\"\nCatatan itu menunjukkan karakteristik informasi akuntansi berupa…",
+        options: [
+          "A. Relevansi",
+          "B. Keandalan",
+          "C. Konsistensi",
+          "D. Dapat dibandingkan",
+        ],
+        answer: "B. Keandalan",
+      },
+      {
+        number: 12,
+        title: "Soal 12:Papan Kayu di Dinding",
+        question:
+          "Di dinding ruangan tergantung papan kayu bertuliskan:\n\"Melalui aku, pemilik, investor, dan kreditur bisa saling memahami kondisi usaha.\"\nPernyataan itu menjelaskan mengapa akuntansi disebut…",
+        options: [
+          "A. Sistem pengawasan",
+          "B. Bahasa bisnis",
+          "C. Metode penghitungan laba",
+          "D. Sistem administrasi",
+        ],
+        answer: "B. Bahasa bisnis",
+      },
+      {
+        number: 13,
+        title: "Soal 13:Map \"Rahasia Internal\"",
+        question:
+          "Sebuah map berlabel “RAHASIA INTERNAL” berisi laporan untuk merencanakan kegiatan usaha berikutnya. Laporan ini jelas dibuat untuk pihak…",
+        options: [
+          "A. Investor",
+          "B. Pemerintah",
+          "C. Manajemen",
+          "D. Kreditur",
+        ],
+        answer: "C. Manajemen",
+      },
+      {
+        number: 14,
+        title: "Soal 14:Kalender Pencatatan Transaksi",
+        question:
+          "Kamu menemukan kalender dengan catatan: transaksi dicatat tepat saat kejadian berlangsung, bukan saat uang diterima atau dibayar. Prinsip yang digunakan adalah…",
+        options: [
+          "A. Periodik",
+          "B. Akrual",
+          "C. Objektivitas",
+          "D. Konsistensi",
+        ],
+        answer: "B. Akrual",
+      },
+      {
+        number: 15,
+        title: "Soal 15:Judul Laporan yang Terhapus",
+        question:
+          "Di atas meja terdapat laporan berisi daftar aset, utang, dan modal pada satu tanggal tertentu. Judulnya hampir terhapus. Laporan itu adalah…",
+        options: [
+          "A. Laba Rugi",
+          "B. Neraca",
+          "C. Arus Kas",
+          "D. Perubahan Modal",
+        ],
+        answer: "B. Neraca",
+      },
+      {
+        number: 16,
+        title: "Soal 16:Dompet di Sudut Ruangan",
+        question:
+          "Di sudut ruangan ada dompet milik pemilik usaha yang bercampur dengan kas perusahaan. Alarm kecil menyala menandakan ada prinsip yang dilanggar, yaitu…",
+        options: [
+          "A. Materialitas",
+          "B. Kesatuan usaha",
+          "C. Periodik",
+          "D. Akrual",
+        ],
+        answer: "B. Kesatuan usaha",
+      },
+      {
+        number: 17,
+        title: "Soal 17:Jam Dinding yang Berhenti",
+        question:
+          "Jam dinding berhenti tepat di akhir periode, tetapi laporan baru dibuat jauh setelah itu. Tulisan di bawahnya berbunyi: “Informasi terlambat, nilainya berkurang.”\nKarakteristik yang terganggu adalah…",
+        options: [
+          "A. Keandalan",
+          "B. Relevansi",
+          "C. Objektivitas",
+          "D. Konsistensi",
+        ],
+        answer: "B. Relevansi",
+      },
+      {
+        number: 18,
+        title: "Soal 18:Laporan di Rak Paling Atas",
+        question:
+          "Di rak paling atas ada laporan yang hanya berisi pendapatan dan beban selama satu periode. Laporan itu disebut…",
+        options: [
+          "A. Neraca",
+          "B. Laba Rugi",
+          "C. Arus Kas",
+          "D. Ekuitas",
+        ],
+        answer: "B. Laba Rugi",
+      },
+      {
+        number: 19,
+        title: "Soal 19:Dokumen yang Dipisahkan",
+        question:
+          "Kamu melihat dokumen transaksi dipisahkan berdasarkan jenisnya: pendapatan dengan pendapatan, beban dengan beban. Proses ini disebut…",
+        options: [
+          "A. Identifikasi",
+          "B. Penggolongan",
+          "C. Pelaporan",
+          "D. Verifikasi",
+        ],
+        answer: "B. Penggolongan",
+      },
+      {
+        number: 20,
+        title: "Soal 20:Laporan dengan Istilah Rumit",
+        question:
+          "Sebuah laporan ditemukan penuh istilah rumit dan sulit dipahami. Di pojok tertulis: “Hanya ahli yang mengerti.”\nKarakteristik yang tidak terpenuhi adalah…",
+        options: [
+          "A. Relevan",
+          "B. Andal",
+          "C. Dapat dipahami",
+          "D. Konsisten",
+        ],
+        answer: "C. Dapat dipahami",
+      },
+      {
+        number: 21,
+        title: "Soal 21:Tulisan di Buku Tua",
+        question:
+          "Di buku tua tertulis: “Aku fokus pada angka yang dapat diukur dengan uang.”\nAkuntansi terutama berkaitan dengan informasi…",
+        options: [
+          "A. Produksi",
+          "B. Keuangan",
+          "C. Pemasaran",
+          "D. Personalia",
+        ],
+        answer: "B. Keuangan",
+      },
+      {
+        number: 22,
+        title: "Soal 22:Papan Urutan Proses",
+        question:
+          "Sebuah papan bertuliskan urutan akhir proses: Identifikasi → Pencatatan → Penggolongan → …\nLangkah terakhir yang hilang adalah…",
+        options: [
+          "A. Verifikasi",
+          "B. Pelaporan",
+          "C. Pengawasan",
+          "D. Evaluasi",
+        ],
+        answer: "B. Pelaporan",
+      },
+      {
+        number: 23,
+        title: "Soal 23:Buku di Meja Berdebu",
+        question:
+          "Di meja berdebu kamu menemukan buku pertama tempat transaksi dicatat sebelum dipindahkan. Buku itu adalah…",
+        options: [
+          "A. Buku Besar",
+          "B. Jurnal",
+          "C. Neraca",
+          "D. Arsip",
+        ],
+        answer: "B. Jurnal",
+      },
+      {
+        number: 24,
+        title: "Soal 24:Laporan yang Sulit Dibandingkan",
+        question:
+          "Laporan tahun ini dibuat dengan metode berbeda dari tahun lalu sehingga sulit dibandingkan. Prinsip yang dilanggar adalah…",
+        options: [
+          "A. Akrual",
+          "B. Materialitas",
+          "C. Konsistensi",
+          "D. Objektivitas",
+        ],
+        answer: "C. Konsistensi",
+      },
+      {
+        number: 25,
+        title: "Soal 25:Pesan Terakhir di Pintu Keluar",
+        question:
+          "Di pintu keluar muncul pesan terakhir:\n\"Tanpa memahami informasi dariku, setiap keputusan hanyalah tebakan.\"\nPesan ini menegaskan bahwa akuntansi membantu manajemen dalam…",
+        options: [
+          "A. Menghitung kas",
+          "B. Mengawasi pegawai",
+          "C. Pengambilan keputusan",
+          "D. Menentukan harga jual",
+        ],
+        answer: "C. Pengambilan keputusan",
+      },
     ],
   },
 
@@ -160,8 +355,7 @@ export const missions = [
       "Modal": 300,
       "Beban Gaji": 511,
     },
-    codeAnswer: 141, // Kode untuk membuka pintu
-    questions: [
+questions: [
       {
         number: 1,
         title: "Soal 1:Dokumen Rahasia di Laci Pajak",
@@ -291,6 +485,136 @@ export const missions = [
         ],
         answer: "A. Akuntansi Manajemen",
         explanation: "Akuntansi manajemen mencakup fungsi perencanaan, pengawasan, dan pelaporan internal."
+      },
+      {
+        number: 11,
+        title: "Soal 11:Laporan di Balik Pintu Produksi",
+        question: "Di balik pintu bertuliskan “PRODUKSI”, kamu menemukan laporan berisi rincian biaya bahan baku, tenaga kerja, dan overhead pabrik.\nBidang akuntansi yang menyusun laporan ini adalah…",
+        options: [
+          "A. Akuntansi Keuangan",
+          "B. Akuntansi Pajak",
+          "C. Akuntansi Biaya",
+          "D. Akuntansi Manajemen"
+        ],
+        answer: "C. Akuntansi Biaya",
+        explanation: "Akuntansi biaya secara khusus mencatat, menganalisis, dan mengendalikan biaya-biaya yang terkait dengan proses produksi."
+      },
+      {
+        number: 12,
+        title: "Soal 12:Map Merah \"Internal Only\"",
+        question: "Sebuah map merah bertuliskan “INTERNAL ONLY” berisi laporan analisis biaya dan rencana anggaran. Dokumen ini dibuat terutama untuk…",
+        options: [
+          "A. Investor",
+          "B. Kreditur",
+          "C. Manajemen",
+          "D. Pemerintah"
+        ],
+        answer: "C. Manajemen",
+        explanation: "Laporan dengan label 'internal only' berisi informasi strategis dan detail yang ditujukan khusus untuk pengambilan keputusan internal manajemen perusahaan."
+      },
+      {
+        number: 13,
+        title: "Soal 13:Laporan di Ruang Investor",
+        question: "Di ruang “INVESTOR”, kamu menemukan laporan keuangan standar yang akan dipublikasikan ke pihak luar. Bidang yang bertanggung jawab atas laporan ini adalah…",
+        options: [
+          "A. Akuntansi Manajemen",
+          "B. Akuntansi Biaya",
+          "C. Akuntansi Keuangan",
+          "D. Akuntansi Forensik"
+        ],
+        answer: "C. Akuntansi Keuangan",
+        explanation: "Akuntansi keuangan bertugas menyusun laporan keuangan umum (seperti neraca dan laporan laba rugi) yang ditujukan untuk pengguna eksternal seperti investor dan kreditor."
+      },
+      {
+        number: 14,
+        title: "Soal 14:Papan Digital Simulasi",
+        question: "Sebuah papan digital menampilkan simulasi perencanaan laba tahun depan berdasarkan data biaya dan penjualan. Aktivitas ini merupakan bagian dari…",
+        options: [
+          "A. Akuntansi Pajak",
+          "B. Akuntansi Manajemen",
+          "C. Akuntansi Keuangan",
+          "D. Akuntansi Pemerintahan"
+        ],
+        answer: "B. Akuntansi Manajemen",
+        explanation: "Simulasi perencanaan laba adalah kegiatan peramalan (forecasting) dan perencanaan masa depan, yang merupakan ranah utama akuntansi manajemen."
+      },
+      {
+        number: 15,
+        title: "Soal 15:Laporan Konversi Mata Uang",
+        question: "Kamu menemukan laporan berisi penyesuaian nilai tukar dan konversi laporan cabang luar negeri. Laporan ini disusun oleh bidang…",
+        options: [
+          "A. Akuntansi Biaya",
+          "B. Akuntansi Pajak",
+          "C. Akuntansi Internasional",
+          "D. Akuntansi Manajemen"
+        ],
+        answer: "C. Akuntansi Internasional",
+        explanation: "Akuntansi internasional menangani isu khusus seperti translasi mata uang asing dan harmonisasi standar akuntansi untuk operasi bisnis lintas negara."
+      },
+      {
+        number: 16,
+        title: "Soal 16:Checklist di Ruang Audit Internal",
+        question: "Di ruangan gelap bertuliskan “AUDIT INTERNAL”, terdapat checklist pemeriksaan kas dan kepatuhan prosedur. Aktivitas ini merupakan tugas bidang…",
+        options: [
+          "A. Akuntansi Keuangan",
+          "B. Akuntansi Pemeriksaan (Auditing)",
+          "C. Akuntansi Pajak",
+          "D. Akuntansi Manajemen"
+        ],
+        answer: "B. Akuntansi Pemeriksaan (Auditing)",
+        explanation: "Auditing (pemeriksaan) adalah bidang yang berfokus pada pengujian dan evaluasi bukti untuk memberikan opini atas kewajaran laporan keuangan dan efektivitas pengendalian internal."
+      },
+      {
+        number: 17,
+        title: "Soal 17:Dokumen Rahasia Investigasi",
+        question: "Sebuah dokumen rahasia berisi penelusuran transaksi fiktif dan dugaan penggelapan dana. Bidang yang paling tepat menangani kasus ini adalah…",
+        options: [
+          "A. Akuntansi Keuangan",
+          "B. Akuntansi Biaya",
+          "C. Akuntansi Forensik",
+          "D. Akuntansi Manajemen"
+        ],
+        answer: "C. Akuntansi Forensik",
+        explanation: "Akuntansi forensik adalah spesialisasi yang menggunakan keterampilan akuntansi, auditing, dan investigasi untuk mengungkap kecurangan, penyimpangan, dan kejahatan keuangan."
+      },
+      {
+        number: 18,
+        title: "Soal 18:Laporan Realisasi Anggaran Pemerintah",
+        question: "Kamu menemukan laporan realisasi anggaran sebuah instansi pemerintah. Laporan tersebut termasuk dalam bidang…",
+        options: [
+          "A. Akuntansi Manajemen",
+          "B. Akuntansi Pemerintahan",
+          "C. Akuntansi Keuangan",
+          "D. Akuntansi Pajak"
+        ],
+        answer: "B. Akuntansi Pemerintahan",
+        explanation: "Akuntansi pemerintahan (atau akuntansi sektor publik) mengatur sistem akuntansi dan pelaporan keuangan untuk lembaga pemerintah, dengan fokus pada anggaran dan pertanggungjawaban dana publik."
+      },
+      {
+        number: 19,
+        title: "Soal 19:Evaluasi Efisiensi Biaya",
+        question: "Pimpinan lembaga ingin mengetahui laporan mana yang paling membantu mengevaluasi efisiensi penggunaan biaya. Laporan tersebut berasal dari bidang…",
+        options: [
+          "A. Akuntansi Keuangan",
+          "B. Akuntansi Pajak",
+          "C. Akuntansi Biaya",
+          "D. Akuntansi Manajemen"
+        ],
+        answer: "D. Akuntansi Manajemen",
+        explanation: "Akuntansi manajemen menyediakan laporan analitis dan komparatif yang mendalam, seperti analisis varians biaya, yang sangat penting untuk mengevaluasi kinerja dan efisiensi."
+      },
+      {
+        number: 20,
+        title: "Soal 20:Pesan Misteri di Pintu Keluar",
+        question: "Di pintu keluar Level 2 tertulis pesan terakhir:\n\"Aku tidak hanya melaporkan masa lalu, tapi membantu merencanakan masa depan.\"\nBidang akuntansi yang dimaksud dalam pesan tersebut adalah…",
+        options: [
+          "A. Akuntansi Keuangan",
+          "B. Akuntansi Pajak",
+          "C. Akuntansi Manajemen",
+          "D. Akuntansi Forensik"
+        ],
+        answer: "C. Akuntansi Manajemen",
+        explanation: "Pesan tersebut menggambarkan karakteristik akuntansi manajemen, yang berorientasi ke depan (future-oriented) untuk perencanaan dan pengambilan keputusan strategis, berbeda dengan akuntansi keuangan yang lebih mencatat peristiwa masa lalu."
       }
     ],
   },
@@ -307,8 +631,7 @@ export const missions = [
     "Modal": 300,
     "Beban utilitas": 512,
   },
-  codeAnswer: 111,
-  questions: [
+questions: [
     {
       number: 1,
       title: "Soal 1: Daftar Pembelian Tunai Pelanggan",
@@ -438,8 +761,203 @@ export const missions = [
       ],
       answer: "B. Kwitansi + Bukti Kas Masuk",
       explanation: "Penjualan tunai: Kwitansi (untuk pelanggan) dan Bukti Kas Masuk (untuk pencatatan perusahaan)."
+    },
+    {
+      number: 11,
+      title: "Soal 11: Bukti di Meja Brankas",
+      question: "Di meja dekat brankas, kamu menemukan lembar bukti penerimaan uang dari pelanggan atas pelunasan piutang. Dokumen tersebut adalah…",
+      options: [
+        "A. Faktur Penjualan",
+        "B. Bukti Kas Masuk",
+        "C. Nota Kredit",
+        "D. Bukti Memorial"
+      ],
+      answer: "B. Bukti Kas Masuk",
+      explanation: "Setiap penerimaan uang tunai di perusahaan harus didukung oleh Bukti Kas Masuk sebagai dokumen sumbernya."
+    },
+    {
+      number: 12,
+      title: "Soal 12: Bukti di Samping Mesin Kasir",
+      question: "Di samping mesin kasir terdapat bukti pembayaran utang kepada pemasok. Dokumen itu disebut…",
+      options: [
+        "A. Bukti Kas Keluar",
+        "B. Kwitansi",
+        "C. Faktur",
+        "D. Nota Debet"
+      ],
+      answer: "A. Bukti Kas Keluar",
+      explanation: "Bukti Kas Keluar adalah dokumen internal yang menjadi dasar pencatatan setiap pengeluaran kas tunai perusahaan."
+    },
+    {
+      number: 13,
+      title: "Soal 13: Formulir Setoran Uang",
+      question: "Kamu menemukan formulir setoran uang ke bank setelah penerimaan tunai. Dokumen tersebut adalah…",
+      options: [
+        "A. Bukti Kas Masuk",
+        "B. Faktur",
+        "C. Bukti Setor Bank",
+        "D. Bukti Memorial"
+      ],
+      answer: "C. Bukti Setor Bank",
+      explanation: "Bukti Setor Bank (atau slip setoran) adalah dokumen dari bank yang menjadi bukti bahwa uang tunai perusahaan telah disetorkan ke rekening bank."
+    },
+    {
+      number: 14,
+      title: "Soal 14: Dokumen Retur Barang Rusak",
+      question: "Di atas meja retur barang terdapat dokumen yang dikirim pembeli kepada pemasok untuk mengurangi utang karena barang rusak. Dokumen itu adalah…",
+      options: [
+        "A. Nota Kredit",
+        "B. Nota Debet",
+        "C. Kwitansi",
+        "D. Faktur"
+      ],
+      answer: "B. Nota Debet",
+      explanation: "Nota Debet diterbitkan oleh pembeli sebagai pemberitahuan resmi dan permintaan pengurangan utang kepada pemasok."
+    },
+    {
+      number: 15,
+      title: "Soal 15: Penjualan Barang Kredit",
+      question: "Transaksi: “Perusahaan menjual barang secara kredit.” Dokumen sumber yang pertama muncul adalah…",
+      options: [
+        "A. Bukti Kas Masuk",
+        "B. Faktur Penjualan",
+        "C. Nota Kredit",
+        "D. Bukti Memorial"
+      ],
+      answer: "B. Faktur Penjualan",
+      explanation: "Untuk penjualan kredit, dokumen pertama yang diterbitkan adalah Faktur Penjualan yang menjadi tagihan kepada pelanggan."
+    },
+    {
+      number: 16,
+      title: "Soal 16: Pembelian Perlengkapan Tunai",
+      question: "Kamu menemukan transaksi pembelian perlengkapan secara tunai. Dokumen yang paling tepat adalah…",
+      options: [
+        "A. Kwitansi",
+        "B. Nota Kredit",
+        "C. Faktur Penjualan",
+        "D. Bukti Memorial"
+      ],
+      answer: "A. Kwitansi",
+      explanation: "Kwitansi diterima dari penjual sebagai bukti pembayaran tunai atas pembelian barang atau jasa."
+    },
+    {
+      number: 17,
+      title: "Soal 17: Urutan Dokumen Pengiriman dan Pembayaran",
+      question: "Barang dikirim dulu, kemudian pelanggan membayar. Urutan dokumen yang logis adalah…",
+      options: [
+        "A. Faktur → Surat Jalan → Bukti Kas Masuk",
+        "B. Surat Jalan → Faktur → Bukti Kas Masuk",
+        "C. Bukti Kas Masuk → Faktur → Surat Jalan",
+        "D. Faktur → Nota Debet → Kwitansi"
+      ],
+      answer: "B. Surat Jalan → Faktur → Bukti Kas Masuk",
+      explanation: "Surat Jalan bukti pengiriman, lalu Faktur sebagai tagihan, dan terakhir Bukti Kas Masuk saat pelunasan."
+    },
+    {
+      number: 18,
+      title: "Soal 18: Analisis Kombinasi Faktur dan Nota Kredit",
+      question: "Kamu menemukan Faktur Pembelian dan Nota Kredit dari pemasok. Ini menunjukkan bahwa perusahaan…",
+      options: [
+        "A. Membeli barang baru",
+        "B. Mengembalikan barang",
+        "C. Membayar utang",
+        "D. Menjual barang"
+      ],
+      answer: "B. Mengembalikan barang",
+      explanation: "Nota Kredit dari pemasok adalah dokumen yang mengurangi utang perusahaan, biasanya karena retur pembelian."
+    },
+    {
+      number: 19,
+      title: "Soal 19: Penerimaan Pinjaman via Transfer",
+      question: "Transaksi penerimaan pinjaman bank via transfer dicatat menggunakan…",
+      options: [
+        "A. Bukti Kas Masuk",
+        "B. Bukti Memorial",
+        "C. Faktur",
+        "D. Nota Debet"
+      ],
+      answer: "B. Bukti Memorial",
+      explanation: "Transaksi yang tidak melibatkan fisik kas (non-tunai) tetapi memengaruhi akun bank dicatat dengan Bukti Memorial."
+    },
+    {
+      number: 20,
+      title: "Soal 20: Pembayaran Gaji Karyawan Tunai",
+      question: "Untuk transaksi pembayaran gaji karyawan secara tunai, dokumen utama yang digunakan adalah…",
+      options: [
+        "A. Bukti Kas Masuk",
+        "B. Bukti Kas Keluar",
+        "C. Faktur",
+        "D. Nota Kredit"
+      ],
+      answer: "B. Bukti Kas Keluar",
+      explanation: "Pengeluaran kas untuk gaji memerlukan Bukti Kas Keluar yang dilampiri daftar gaji (payroll) sebagai dokumen pendukung."
+    },
+    {
+      number: 21,
+      title: "Soal 21: Dokumen Bukti Pengiriman",
+      question: "Dokumen yang menunjukkan pengiriman barang kepada pelanggan adalah…",
+      options: [
+        "A. Surat Jalan",
+        "B. Kwitansi",
+        "C. Nota Debet",
+        "D. Bukti Memorial"
+      ],
+      answer: "A. Surat Jalan",
+      explanation: "Surat Jalan (delivery order) adalah dokumen pengiriman yang disertakan bersama barang sebagai bukti penyerahan."
+    },
+    {
+      number: 22,
+      title: "Soal 22: Penerimaan Uang Muka",
+      question: "Perusahaan menerima uang muka dari pelanggan. Dokumen yang sesuai adalah…",
+      options: [
+        "A. Faktur",
+        "B. Bukti Kas Masuk",
+        "C. Nota Kredit",
+        "D. Surat Jalan"
+      ],
+      answer: "B. Bukti Kas Masuk",
+      explanation: "Uang muka (DP) adalah penerimaan kas di awal, sehingga dibuktikan dengan Bukti Kas Masuk."
+    },
+    {
+      number: 23,
+      title: "Soal 23: Kombinasi Dokumen Retur Pembelian",
+      question: "Jika perusahaan membeli barang kredit lalu mengembalikannya sebagian, kombinasi dokumen yang muncul adalah…",
+      options: [
+        "A. Faktur + Bukti Kas Keluar",
+        "B. Faktur + Nota Debet",
+        "C. Faktur + Nota Kredit",
+        "D. Kwitansi + Nota Debet"
+      ],
+      answer: "B. Faktur + Nota Debet",
+      explanation: "Faktur sebagai bukti pembelian kredit, dan Nota Debet sebagai bukti pengembalian barang/pengurangan utang yang diterbitkan perusahaan."
+    },
+    {
+      number: 24,
+      title: "Soal 24: Dokumen Transaksi Non-Kas",
+      question: "Dokumen yang digunakan saat tidak ada bukti fisik kas tetapi transaksi tetap dicatat adalah…",
+      options: [
+        "A. Faktur",
+        "B. Kwitansi",
+        "C. Bukti Memorial",
+        "D. Bukti Setor Bank"
+      ],
+      answer: "C. Bukti Memorial",
+      explanation: "Bukti Memorial digunakan untuk mencatat transaksi penyesuaian, koreksi, atau transaksi non-tunai yang tidak melibatkan dokumen kas/bank."
+    },
+    {
+      number: 25,
+      title: "Soal 25: Pesan Misteri Akhir Level",
+      question: "Pesan terakhir berbunyi:\n\"Semua transaksi meninggalkan jejak. Pilih dokumen yang muncul saat penjualan tunai terjadi dan uang langsung diterima.\"",
+      options: [
+        "A. Faktur + Bukti Kas Keluar",
+        "B. Kwitansi + Bukti Kas Masuk",
+        "C. Nota Kredit + Faktur",
+        "D. Surat Jalan + Nota Debet"
+      ],
+      answer: "B. Kwitansi + Bukti Kas Masuk",
+      explanation: "Penjualan tunai menghasilkan dua dokumen: Kwitansi (untuk pelanggan) dan Bukti Kas Masuk (untuk catatan internal perusahaan)."
     }
-  ]
+  ],
 },
 {
   id: 4,
@@ -454,8 +972,7 @@ export const missions = [
     "Modal": 300,
     "Beban utilitas": 512,
   },
-  codeAnswer: 512,
-  questions: [
+questions: [
     {
       number: 1,
       title: "Soal 1: Setoran Modal Pemilik",
@@ -585,8 +1102,138 @@ export const missions = [
       ],
       answer: "A. Jurnal debit Kas tercatat debit di buku besar",
       explanation: "Posting yang benar: sisi di jurnal (debit/kredit) harus sama dengan sisi di buku besar."
+    },
+    {
+      number: 11,
+      title: "Soal 11: Tulisan di Halaman Pertama Buku Besar",
+      question: "Di halaman pertama buku besar raksasa tertulis:\n\"Aku selalu berada di sisi kiri dan menambah nilai akun tertentu.\"\nIstilah yang dimaksud adalah…",
+      options: [
+        "A. Kredit",
+        "B. Debit",
+        "C. Saldo",
+        "D. Posting"
+      ],
+      answer: "B. Debit",
+      explanation: "Debit selalu berada di sisi kiri jurnal atau buku besar dan menambah saldo akun aset serta beban."
+    },
+    {
+      number: 12,
+      title: "Soal 12: Pencatatan Pembelian Peralatan Tunai",
+      question: "Kamu menemukan catatan transaksi: “Perusahaan membeli peralatan secara tunai Rp4.000.000.”\nPencatatan jurnal yang benar adalah…",
+      options: [
+        "A. Debit Kas, Kredit Peralatan",
+        "B. Debit Peralatan, Kredit Kas",
+        "C. Debit Modal, Kredit Kas",
+        "D. Debit Beban, Kredit Kas"
+      ],
+      answer: "B. Debit Peralatan, Kredit Kas",
+      explanation: "Pembelian aset (Peralatan) bertambah (debit), sedangkan Kas berkurang (kredit)."
+    },
+    {
+      number: 13,
+      title: "Soal 13: Analisis Jurnal Piutang dan Pendapatan",
+      question: "Sebuah jurnal menunjukkan:\nDebit Piutang Usaha Rp2.000.000\nKredit Pendapatan Jasa Rp2.000.000\nArtinya perusahaan…",
+      options: [
+        "A. Menerima kas",
+        "B. Memberi pinjaman",
+        "C. Memberikan jasa secara kredit",
+        "D. Membayar utang"
+      ],
+      answer: "C. Memberikan jasa secara kredit",
+      explanation: "Piutang bertambah (debit) dan Pendapatan bertambah (kredit), menandakan penjualan jasa yang belum dibayar (kredit)."
+    },
+    {
+      number: 14,
+      title: "Soal 14: Efek Posting Beban Listrik",
+      question: "Dari jurnal Debit Beban Listrik, Kredit Kas. Saat diposting ke buku besar, akun Kas akan…",
+      options: [
+        "A. Bertambah sisi debit",
+        "B. Bertambah sisi kredit",
+        "C. Berkurang sisi debit",
+        "D. Tidak berubah"
+      ],
+      answer: "B. Bertambah sisi kredit",
+      explanation: "Karena di jurnal Kas dikredit, posting ke buku besar akan menambah jumlah di sisi kredit akun Kas (yang berarti mengurangi saldo Kas)."
+    },
+    {
+      number: 15,
+      title: "Soal 15: Jurnal Pelunasan Utang",
+      question: "Transaksi: “Perusahaan membayar utang Rp3.000.000.”\nJurnal yang tepat adalah…",
+      options: [
+        "A. Debit Kas, Kredit Utang",
+        "B. Debit Utang, Kredit Kas",
+        "C. Debit Modal, Kredit Kas",
+        "D. Debit Beban, Kredit Utang"
+      ],
+      answer: "B. Debit Utang, Kredit Kas",
+      explanation: "Pelunasan utang mengurangi kewajiban (Utang didebit) dan mengurangi aset (Kas dikredit)."
+    },
+    {
+      number: 16,
+      title: "Soal 16: Analisis Kesalahan Pencatatan Beban Sewa",
+      question: "Kamu melihat akun Beban Sewa dikredit saat perusahaan membayar sewa. Kesalahan terjadi karena…",
+      options: [
+        "A. Beban seharusnya di debit",
+        "B. Kas seharusnya di debit",
+        "C. Utang seharusnya di kredit",
+        "D. Modal salah dicatat"
+      ],
+      answer: "A. Beban seharusnya di debit",
+      explanation: "Saat membayar beban, Beban harus bertambah (debit) dan Kas berkurang (kredit). Mengkredit Beban adalah kesalahan."
+    },
+    {
+      number: 17,
+      title: "Soal 17: Analisis Saldo Kas Setelah Posting",
+      question: "Saldo awal akun Kas Rp10.000.000. Setelah diposting jurnal Kredit Kas Rp2.000.000, saldo menjadi…",
+      options: [
+        "A. Rp12.000.000",
+        "B. Rp8.000.000",
+        "C. Rp10.000.000",
+        "D. Rp2.000.000"
+      ],
+      answer: "B. Rp8.000.000",
+      explanation: "Kredit pada akun Kas berarti pengurangan. Saldo akhir = Rp10.000.000 - Rp2.000.000 = Rp8.000.000."
+    },
+    {
+      number: 18,
+      title: "Soal 18: Fungsi Utama Buku Besar",
+      question: "Buku besar membantu menunjukkan…",
+      options: [
+        "A. Bukti transaksi",
+        "B. Urutan transaksi",
+        "C. Saldo tiap akun",
+        "D. Laporan laba rugi"
+      ],
+      answer: "C. Saldo tiap akun",
+      explanation: "Fungsi utama buku besar adalah mengumpulkan dan meringkas semua transaksi suatu akun, sehingga dapat diketahui saldo akhirnya."
+    },
+    {
+      number: 19,
+      title: "Soal 19: Evaluasi Transaksi Non-Kas",
+      question: "Transaksi mana yang tidak memengaruhi akun kas?",
+      options: [
+        "A. Pembayaran gaji",
+        "B. Pembelian tunai",
+        "C. Penghapusan piutang tak tertagih",
+        "D. Pembayaran listrik"
+      ],
+      answer: "C. Penghapusan piutang tak tertagih",
+      explanation: "Penghapusan piutang hanya mengakui kerugian (Beban) dan mengurangi Piutang, tanpa melibatkan penerimaan atau pengeluaran kas."
+    },
+    {
+      number: 20,
+      title: "Soal 20: Pesan Terakhir tentang Posting yang Benar",
+      question: "Pesan terakhir menyala di buku besar:\n\"Jika jurnal benar, sisi buku besar harus sama arahnya.\"\nPosting yang benar adalah…",
+      options: [
+        "A. Jurnal Debit Kas → Buku Besar Kredit Kas",
+        "B. Jurnal Kredit Pendapatan → Buku Besar Kredit Pendapatan",
+        "C. Jurnal Debit Utang → Buku Besar Kredit Utang",
+        "D. Jurnal Kredit Kas → Buku Besar Debit Kas"
+      ],
+      answer: "B. Jurnal Kredit Pendapatan → Buku Besar Kredit Pendapatan",
+      explanation: "Prinsip posting adalah memindahkan angka dari jurnal ke buku besar pada sisi yang sama (debit ke debit, kredit ke kredit)."
     }
-  ]
+  ],
 },
 {
   id: 5,
@@ -601,8 +1248,7 @@ export const missions = [
     "Modal": 300,
     "Prive": 312,
   },
-  codeAnswer: 312,
-  questions: [
+questions: [
     {
       number: 1,
       title: "Soal 1: Tujuan Neraca Saldo",
@@ -692,7 +1338,7 @@ export const missions = [
         "D. Rp 11.000.000"
       ],
       answer: "A. Rp 6.000.000",
-      explanation: "Laba = 12jt - (5jt + 1jt) = 12jt - 6jt = 6jt. (Perhitungan di data asli tampaknya ada selisih 1jt. Berdasarkan data: 12 - 5 - 1 = 6. Tapi jawaban di data asli adalah 7jt, mungkin ada beban lain atau data berbeda. Saya ikuti logika perhitungan standar).\n\n*Koreksi: Berdasarkan data soal yang Anda berikan, jawabannya B. Rp 7.000.000. Mungkin ada data tambahan atau angka yang berbeda.*"
+      explanation: "Laba Bersih = Pendapatan - Total Beban = Rp12.000.000 - (Rp5.000.000 + Rp1.000.000) = Rp6.000.000."
     },
     {
       number: 8,
@@ -732,8 +1378,203 @@ export const missions = [
       ],
       answer: "C. Rp 25.000.000",
       explanation: "Total Aset = Kas + Peralatan = 10jt + 15jt = 25jt."
+    },
+    {
+      number: 11,
+      title: "Soal 11: Daftar Saldo di Papan Digital",
+      question: "Di papan digital muncul daftar saldo akun sebelum laporan dibuat. Di bawahnya tertulis:\n\"Aku hanya daftar, belum menjadi laporan.\"\nDokumen misterius ini adalah…",
+      options: [
+        "A. Buku Besar",
+        "B. Jurnal",
+        "C. Neraca Saldo",
+        "D. Laporan Laba Rugi"
+      ],
+      answer: "C. Neraca Saldo",
+      explanation: "Neraca Saldo adalah kumpulan saldo dari buku besar, yang belum disajikan dalam format laporan keuangan formal."
+    },
+    {
+      number: 12,
+      title: "Soal 12: Alarm Keseimbangan",
+      question: "Sebuah alarm berbunyi saat jumlah debit tidak sama dengan kredit. Layar menampilkan pesan:\n\"Aku dibuat untuk menguji keseimbangan.\"\nYang dimaksud adalah fungsi dari…",
+      options: [
+        "A. Buku Besar",
+        "B. Neraca Saldo",
+        "C. Laporan Posisi Keuangan",
+        "D. Jurnal Penyesuaian"
+      ],
+      answer: "B. Neraca Saldo",
+      explanation: "Fungsi utama Neraca Saldo adalah untuk menguji kebenaran matematis (keseimbangan debit dan kredit) setelah proses posting dari jurnal ke buku besar."
+    },
+    {
+      number: 13,
+      title: "Soal 13: Kartu Akun Kas dan Laporannya",
+      question: "Sebuah laci terbuka memperlihatkan kartu akun bertuliskan KAS. Tulisan di belakangnya berbunyi:\n\"Aku muncul di laporan yang menunjukkan posisi harta.\"\nLaporan itu adalah…",
+      options: [
+        "A. Laba Rugi",
+        "B. Perubahan Modal",
+        "C. Posisi Keuangan",
+        "D. Arus Kas"
+      ],
+      answer: "C. Posisi Keuangan",
+      explanation: "Kas adalah akun aset. Laporan yang menampilkan posisi harta (aset), utang, dan modal disebut Laporan Posisi Keuangan atau Neraca."
+    },
+    {
+      number: 14,
+      title: "Soal 14: Angka Melayang Pendapatan dan Beban",
+      question: "Angka-angka melayang di udara:\nPendapatan Rp8.000.000\nBeban Rp5.000.000\nSebuah suara berbisik: “Selisih kami adalah kunci.”\nBesar kunci itu adalah…",
+      options: [
+        "A. Rp3.000.000",
+        "B. Rp5.000.000",
+        "C. Rp8.000.000",
+        "D. Rp13.000.000"
+      ],
+      answer: "A. Rp3.000.000",
+      explanation: "Kunci yang dimaksud adalah Laba Bersih, yang dihitung sebagai selisih antara Pendapatan dan Beban (Rp8.000.000 - Rp5.000.000 = Rp3.000.000)."
+    },
+    {
+      number: 15,
+      title: "Soal 15: Sifat Akun Piutang Usaha",
+      question: "Di dinding muncul tulisan PIUTANG USAHA lalu berubah warna biru. Catatan kecil berbunyi:\n\"Aku adalah milik perusahaan, bukan kewajiban.\"\nAkun ini termasuk…",
+      options: [
+        "A. Aset",
+        "B. Utang",
+        "C. Modal",
+        "D. Beban"
+      ],
+      answer: "A. Aset",
+      explanation: "Piutang Usaha adalah hak perusahaan untuk menerima pembayaran di masa depan dari pelanggan, sehingga diklasifikasikan sebagai Aset Lancar."
+    },
+    {
+      number: 16,
+      title: "Soal 16: Peringatan Keseimbangan Neraca Saldo",
+      question: "Neraca saldo terlihat seimbang, tapi layar merah berkedip bertuliskan:\n\"Keseimbangan belum tentu kebenaran!\"\nKemungkinan penyebabnya adalah…",
+      options: [
+        "A. Semua akun benar",
+        "B. Ada akun belum disesuaikan",
+        "C. Kas terlalu kecil",
+        "D. Modal terlalu besar"
+      ],
+      answer: "B. Ada akun belum disesuaikan",
+      explanation: "Neraca saldo bisa seimbang meskipun ada kesalahan yang saling menutupi atau transaksi penyesuaian yang belum dicatat. Keseimbangan tidak menjamin keakuratan."
+    },
+    {
+      number: 17,
+      title: "Soal 17: Analisis Perubahan Modal",
+      question: "Bayangan angka muncul:\nPendapatan 15.000.000\nBeban 10.000.000\nPrive 2.000.000\nPesan rahasia: “Yang tersisa memperkuat atau melemahkan pemilik.”\nPerubahan bersih modal adalah…",
+      options: [
+        "A. 5.000.000",
+        "B. 3.000.000",
+        "C. 7.000.000",
+        "D. 13.000.000"
+      ],
+      answer: "B. 3.000.000",
+      explanation: "Laba Bersih = Pendapatan - Beban = 15.000.000 - 10.000.000 = 5.000.000.\nPerubahan Bersih Modal = Laba Bersih - Prive = 5.000.000 - 2.000.000 = 3.000.000 (menguat)."
+    },
+    {
+      number: 18,
+      title: "Soal 18: Laporan Tempat Beban Sewa",
+      question: "Sebuah berkas bertuliskan BEBAN SEWA bersinar redup. Tulisan di bawahnya:\n\"Aku tidak tinggal di laporan harta, tapi di laporan hasil usaha.\"\nLaporan itu adalah…",
+      options: [
+        "A. Posisi Keuangan",
+        "B. Laba Rugi",
+        "C. Arus Kas",
+        "D. Ekuitas"
+      ],
+      answer: "B. Laba Rugi",
+      explanation: "Beban adalah komponen yang dilaporkan dalam Laporan Laba Rugi, yang menunjukkan hasil usaha (pendapatan dikurangi beban) suatu periode."
+    },
+    {
+      number: 19,
+      title: "Soal 19: Menghitung Modal dari Persamaan Akuntansi",
+      question: "Papan besar menunjukkan:\nAset = 40.000.000\nUtang = 15.000.000\nSuara mekanik berkata: “Sisa ini milik pemilik.”\nNilainya adalah…",
+      options: [
+        "A. 25.000.000",
+        "B. 15.000.000",
+        "C. 40.000.000",
+        "D. 55.000.000"
+      ],
+      answer: "A. 25.000.000",
+      explanation: "Berdasarkan persamaan dasar akuntansi: Aset = Utang + Modal. Maka Modal = Aset - Utang = 40.000.000 - 15.000.000 = 25.000.000."
+    },
+    {
+      number: 20,
+      title: "Soal 20: Akun yang Ditolak Laporan Laba Rugi",
+      question: "Beberapa akun beterbangan. Salah satunya ditolak oleh layar laba rugi. Akun itu adalah…",
+      options: [
+        "A. Pendapatan",
+        "B. Beban Gaji",
+        "C. Peralatan",
+        "D. Beban Listrik"
+      ],
+      answer: "C. Peralatan",
+      explanation: "Laporan Laba Rugi hanya berisi akun nominal (Pendapatan dan Beban). Peralatan adalah akun riil (aset) yang dilaporkan di Laporan Posisi Keuangan."
+    },
+    {
+      number: 21,
+      title: "Soal 21: Dampak Kerugian pada Pemilik",
+      question: "Laporan menunjukkan perusahaan rugi. Lampu ruangan meredup dan suara berkata:\n\"Saat hasil negatif, pemilik ikut merasakannya.\"\nArtinya…",
+      options: [
+        "A. Aset naik",
+        "B. Modal berkurang",
+        "C. Utang hilang",
+        "D. Pendapatan naik"
+      ],
+      answer: "B. Modal berkurang",
+      explanation: "Kerugian perusahaan akan mengurangi jumlah laba ditahan (bagian dari ekuitas), yang pada akhirnya mengurangi total modal pemilik."
+    },
+    {
+      number: 22,
+      title: "Soal 22: Laporan Perubahan Saldo Modal",
+      question: "Sebuah buku terbuka menampilkan perubahan saldo modal dari awal hingga akhir periode. Buku ini adalah laporan…",
+      options: [
+        "A. Laba Rugi",
+        "B. Posisi Keuangan",
+        "C. Perubahan Modal",
+        "D. Arus Kas"
+      ],
+      answer: "C. Perubahan Modal",
+      explanation: "Laporan Perubahan Modal (atau Ekuitas) secara khusus melaporkan perubahan saldo modal pemilik, termasuk laba/rugi dan prive."
+    },
+    {
+      number: 23,
+      title: "Soal 23: Pertumbuhan Bersih Pemilik",
+      question: "Angka di lantai menyala:\nPendapatan 20.000.000\nBeban 12.000.000\nPrive 3.000.000\nPesan muncul: “Inilah pertumbuhan bersih pemilik.”\nNilainya…",
+      options: [
+        "A. 8.000.000",
+        "B. 5.000.000",
+        "C. 11.000.000",
+        "D. 20.000.000"
+      ],
+      answer: "B. 5.000.000",
+      explanation: "Pertumbuhan bersih modal pemilik dihitung dari Laba Bersih dikurangi Pengambilan Prive.\nLaba Bersih = 20.000.000 - 12.000.000 = 8.000.000.\nPertumbuhan Bersih = 8.000.000 - 3.000.000 = 5.000.000."
+    },
+    {
+      number: 24,
+      title: "Soal 24: Pintu Bergetar Saat Persamaan Rusak",
+      question: "Pintu bergetar saat total aset ≠ utang + modal. Sistem menampilkan:\n\"Persamaan rusak!\"\nArtinya…",
+      options: [
+        "A. Perusahaan rugi",
+        "B. Ada kesalahan laporan",
+        "C. Modal kecil",
+        "D. Beban besar"
+      ],
+      answer: "B. Ada kesalahan laporan",
+      explanation: "Persamaan Aset = Kewajiban + Ekuitas adalah hukum dasar akuntansi yang harus selalu seimbang. Jika tidak, pasti ada kesalahan dalam pencatatan, penjumlahan, atau klasifikasi akun."
+    },
+    {
+      number: 25,
+      title: "Soal 25: Kunci Terakhir - Hukum Utama",
+      question: "Seluruh ruangan gelap. Hanya satu kalimat bercahaya:\n\"Segala sesuatu harus seimbang. Itulah hukum utama ruangan ini.\"\nHukum yang dimaksud adalah…",
+      options: [
+        "A. Pendapatan – Beban",
+        "B. Aset = Utang + Modal",
+        "C. Kas = Modal",
+        "D. Laba = Modal"
+      ],
+      answer: "B. Aset = Utang + Modal",
+      explanation: "Hukum utama atau persamaan dasar akuntansi yang harus selalu seimbang adalah: Aset (harta) sama dengan Kewajiban (utang) ditambah Ekuitas (modal). Keseimbangan ini menjadi fondasi seluruh sistem pencatatan akuntansi."
     }
-  ]
+  ],
 }
 
 ];

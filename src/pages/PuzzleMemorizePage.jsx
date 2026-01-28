@@ -100,13 +100,13 @@ const PuzzleMemorizePage = () => {
       {/* 🌌 Background Layers */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/img/bg_puzzle.jpg"
+          src="/img/bg_puzzle.png"
           alt="background"
-          className="object-cover w-full h-full opacity-40"
+          className="object-cover w-full h-full opacity-60"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#ffb84d22] to-[#0d0f1a] z-0" />
-      <div className="absolute inset-0 bg-[url('/img/bg_puzzle.jpg')] bg-cover opacity-10 z-0" />
+      <div className="absolute inset-0 bg-[url('/img/bg_puzzle.png')] bg-cover opacity-10 z-0" />
 
       {/* 🔊 Global Audio Controls - KANAN ATAS */}
       <motion.button

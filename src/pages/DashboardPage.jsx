@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TimerContext } from "../contexts/TimerContext";
 
 const DashboardPage = () => {
+  
   const navigate = useNavigate();
-  const { resetTimer } = useContext(TimerContext);
+const { resetTimer, startTimer } = useContext(TimerContext); // ✅
   const [popupData, setPopupData] = useState(null);
   const [isMuted, setIsMuted] = useState(false);
   
@@ -70,18 +71,28 @@ const DashboardPage = () => {
       id: mission.id,
       title: mission.title,
       info: mission.info,
-      image: `/img/m${mission.id}.jpg`
+      image: `/img/misi${mission.id}.jpeg`
     });
   };
 
-  // Konfirmasi mulai misi dari popup
-  const handleStartMission = () => {
-    if (!popupData) return;
-    
-    localStorage.setItem(`score_m${popupData.id}`, 0);
-    resetTimer();
-    navigate(`/puzzle/${popupData.id}`, { state: { fromDashboard: true } });
-  };
+// DashboardPage.js - Modifikasi fungsi handleStartMission
+const handleStartMission = () => {
+  if (!popupData) return;
+  
+  // Reset timer ke 0
+  resetTimer();
+  
+  // Mulai timer baru
+  startTimer();
+  
+  console.log(`⏱️ Timer dimulai untuk Misi ${popupData.id}`);
+  
+  // Simpan score 0 untuk misi ini
+  localStorage.setItem(`score_m${popupData.id}`, 0);
+  
+  // Navigasi ke halaman misi
+  navigate(`/puzzle/${popupData.id}`, { state: { fromDashboard: true } });
+};
 
   // Tutup popup
   const handleClosePopup = () => {
@@ -134,13 +145,13 @@ const DashboardPage = () => {
       {/* 🌌 Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/img/bg_map.jpg"
+          src="/img/bg_dashboard.jpeg"
           alt="map background"
-          className="object-cover w-full h-full opacity-80"
+          className="object-cover w-full h-full opacity-60"
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#ffb84d22] to-[#0d0f1a] z-0" />
-      <div className="absolute inset-0 bg-[url('/img/bg_map.jpg')] bg-cover opacity-10 z-0" />
+      <div className="absolute inset-0 bg-[url('/img/bg_dashboard.jpeg')] bg-cover opacity-10 z-0" />
 
       {/* 🔊 Global Audio Controls - KANAN ATAS */}
       <motion.button
@@ -250,7 +261,7 @@ const DashboardPage = () => {
                 }}
               >
                 <img
-                  src={`/img/m${mission.id}.jpg`}
+                  src={`/img/misi${mission.id}.jpeg`}
                   alt={`Misi ${mission.id}`}
                   className="object-cover w-full h-full"
                 />

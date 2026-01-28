@@ -181,7 +181,7 @@ const HomePage = () => {
         <div className="flex flex-col items-center gap-2 text-center select-none">
           {/* Logo glowing pulse */}
           <motion.img
-            src="/img/logo-glow.png"
+            src="/img/logo_new.png"
             alt="logo"
             className="w-48 h-auto md:w-64 drop-shadow-xl"
             animate={{ scale: [1, 1.04, 1], opacity: [0.9, 1, 0.95] }}
