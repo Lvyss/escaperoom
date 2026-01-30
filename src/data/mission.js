@@ -5,13 +5,12 @@ export const missions = [
     intro: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi, kamu bisa menemukan kunci keluar dari ruang ini.",
     info: "Kamu terperangkap di ruang arsip kuno milik lembaga keuangan lama. Di setiap meja ada dokumen berdebu dan pesan rahasia yang harus dipecahkan. Hanya dengan memahami dasar akuntansi dengan BENAR, kamu bisa KELUAR dari ruang ini. Namun sebelum memasuki ruang arsip kuno tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL  sebagai syarat untuk membuka pintu masuk.",
     codes: {
-      "Harta Lancar": 110,
-      "Gedung": 124,
-      "Utang Gaji": 212,
-
-      "Modal": 300,
-      "Beban Bunga": 514,
-            "Utang Pajak": 213,
+      "Current Asset": 110,
+      "Building": 124,
+      "Salaries and Wages Payable": 212,
+      "Equity ": 300,
+      "Interest Expense ": 514,
+            "Tax Payable": 213,
     },
 questions: [
       {
@@ -348,12 +347,12 @@ questions: [
     intro: "Kamu berhasil keluar dari ruang arsip kuno dan kini memasuki ruang kantor dengan banyak ruang yang bertuliskan 'Keuangan', 'Pajak', 'Auditor', dan 'Manajemen'. Hanya dengan memahami bidang-bidang akuntansi dalam lembaga, kamu bisa menemukan pintu keluar yang benar.",
     info: "Kamu berhasil keluar dari ruang arsip kuno dan kini memasuki ruang kantor dengan banyak ruang yang bertuliskan “Keuangan”, “Pajak”, “Auditor”, dan “Manajemen”. Hanya dengan memahami bidang-bidang akuntansi dalam lembaga, kamu bisa menemukan pintu keluar yang benar. Namun sebelum memasuki ruang kantor tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL  sebagai syarat untuk membuka pintu masuk.",
     codes: {
-      "Piutang": 112,
-      "Tanah": 121,
+      "Account Receivable ": 112,
+      "Land": 121,
       "Goodwill": 141,
-      "Utang": 200,
-      "Modal": 300,
-      "Beban Gaji": 511,
+      "Account Payable": 200,
+      "Equity": 300,
+      "Salaries and Wages Payable": 511,
     },
 questions: [
       {
@@ -624,12 +623,12 @@ questions: [
   intro: "Kamu masuk ke ruang kecil dengan tumpukan bukti transaksi. Lampu meredup. Di setiap meja terdapat dokumen dengan kode rahasia. Kamu harus bisa mengidentifikasi jenis transaksi dan dokumen sumber untuk melanjutkan.",
   info: "Kamu masuk ke ruang kecil dengan tumpukan bukti transaksi. Lampu meredup. Di setiap meja terdapat dokumen dengan kode rahasia. Kamu harus bisa mengidentifikasi jenis transaksi dan dokumen sumber untuk melanjutkan. Namun sebelum memasuki ruang kecil tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL  sebagai syarat untuk membuka pintu masuk.",
   codes: {
-    "Kas": 111,
-    "Peralatan": 122,
-    "Hak Paten": 142,
-    "Utang": 200,
-    "Modal": 300,
-    "Beban utilitas": 512,
+    "Cash": 111,
+    "Equipment": 122,
+    "Supplies": 142,
+    "Account Payable": 200,
+    "Equity": 300,
+    "Utilities Expense": 512,
   },
 questions: [
     {
@@ -965,12 +964,12 @@ questions: [
   intro: "Kamu memasuki ruangan dengan satu meja panjang berisi banyak jurnal. Di dinding, ada buku besar raksasa. Pintu tidak akan terbuka sampai kamu bisa membuktikan bahwa kamu memahami proses pencatatan transaksi dan pemindahan ke buku besar.",
   info: "Kamu memasuki ruangan dengan satu meja panjang berisi banyak jurnal. Di dinding, ada buku besar raksasa. Pintu tidak akan terbuka sampai kamu bisa membuktikan bahwa kamu memahami proses pencatatan transaksi dan pemindahan ke buku besar. Namun sebelum memasuki ruangan  tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL  sebagai syarat untuk membuka pintu masuk.",
   codes: {
-    "Kas": 111,
-    "Peralatan": 122,
-    "Hak Paten": 142,
-    "Utang": 200,
-    "Modal": 300,
-    "Beban utilitas": 512,
+    "Cash": 111,
+    "Equipment ": 122,
+    "Supplies": 142,
+    "Account Payable": 200,
+    "Equity": 300,
+    "Utilities Expense": 512,
   },
 questions: [
     {
@@ -1121,18 +1120,18 @@ questions: [
       title: "Soal 12: Pencatatan Pembelian Peralatan Tunai",
       question: "Kamu menemukan catatan transaksi: “Perusahaan membeli peralatan secara tunai Rp4.000.000.”\nPencatatan jurnal yang benar adalah…",
       options: [
-        "A. Debit Kas, Kredit Peralatan",
-        "B. Debit Peralatan, Kredit Kas",
-        "C. Debit Modal, Kredit Kas",
-        "D. Debit Beban, Kredit Kas"
+        "A. Debit Cash, Kredit Equipment",
+        "B. Debit Equipment, Kredit Cash",
+        "C. Debit Capital, Kredit Cash",
+        "D. Debit Expense, Kredit Cash"
       ],
-      answer: "B. Debit Peralatan, Kredit Kas",
-      explanation: "Pembelian aset (Peralatan) bertambah (debit), sedangkan Kas berkurang (kredit)."
+      answer: "B. Debit Equipment, Kredit Cash",
+      explanation: "Pembelian aset (Equipment) bertambah (debit), sedangkan Cash berkurang (kredit)."
     },
     {
       number: 13,
       title: "Soal 13: Analisis Jurnal Piutang dan Pendapatan",
-      question: "Sebuah jurnal menunjukkan:\nDebit Piutang Usaha Rp2.000.000\nKredit Pendapatan Jasa Rp2.000.000\nArtinya perusahaan…",
+      question: "Sebuah jurnal menunjukkan:\nDebit Account Receivable Rp2.000.000\nKredit Revenue Rp2.000.000\nArtinya perusahaan…",
       options: [
         "A. Menerima kas",
         "B. Memberi pinjaman",
@@ -1145,7 +1144,7 @@ questions: [
     {
       number: 14,
       title: "Soal 14: Efek Posting Beban Listrik",
-      question: "Dari jurnal Debit Beban Listrik, Kredit Kas. Saat diposting ke buku besar, akun Kas akan…",
+      question: "Dari jurnal Debit Utilities Expense, Cash sebelah Kredit. Saat diposting ke buku besar, akun Cash akan…",
       options: [
         "A. Bertambah sisi debit",
         "B. Bertambah sisi kredit",
@@ -1160,31 +1159,31 @@ questions: [
       title: "Soal 15: Jurnal Pelunasan Utang",
       question: "Transaksi: “Perusahaan membayar utang Rp3.000.000.”\nJurnal yang tepat adalah…",
       options: [
-        "A. Debit Kas, Kredit Utang",
-        "B. Debit Utang, Kredit Kas",
-        "C. Debit Modal, Kredit Kas",
-        "D. Debit Beban, Kredit Utang"
+        "A. Debit Cash, Kredit Account Payable",
+        "B. Debit Account Payable , Kredit Cash",
+        "C. Debit Equity, Kredit Cash",
+        "D. Debit Expense, Kredit Account Payable"
       ],
-      answer: "B. Debit Utang, Kredit Kas",
-      explanation: "Pelunasan utang mengurangi kewajiban (Utang didebit) dan mengurangi aset (Kas dikredit)."
+      answer: "B. Debit Utang, Kredit Cash",
+      explanation: "Pelunasan utang mengurangi kewajiban (Utang didebit) dan mengurangi aset (Cash dikredit)."
     },
     {
       number: 16,
-      title: "Soal 16: Analisis Kesalahan Pencatatan Beban Sewa",
-      question: "Kamu melihat akun Beban Sewa dikredit saat perusahaan membayar sewa. Kesalahan terjadi karena…",
+      title: "Soal 16: Analisis Kesalahan Pencatatan Expense Sewa",
+      question: "Kamu melihat akun Rent Expense dikredit saat perusahaan membayar sewa. Kesalahan terjadi karena…",
       options: [
-        "A. Beban seharusnya di debit",
-        "B. Kas seharusnya di debit",
-        "C. Utang seharusnya di kredit",
-        "D. Modal salah dicatat"
+        "A. Expense seharusnya di debit",
+        "B. Cash seharusnya di debit",
+        "C. Account Payable seharusnya di kredit",
+        "D. Equity salah dicatat"
       ],
-      answer: "A. Beban seharusnya di debit",
-      explanation: "Saat membayar beban, Beban harus bertambah (debit) dan Kas berkurang (kredit). Mengkredit Beban adalah kesalahan."
+      answer: "A. Expense seharusnya di debit",
+      explanation: "Saat membayar Expense, Expense harus bertambah (debit) dan Kas berkurang (kredit). Mengkredit Expense adalah kesalahan."
     },
     {
       number: 17,
-      title: "Soal 17: Analisis Saldo Kas Setelah Posting",
-      question: "Saldo awal akun Kas Rp10.000.000. Setelah diposting jurnal Kredit Kas Rp2.000.000, saldo menjadi…",
+      title: "Soal 17: Analisis Saldo Cash Setelah Posting",
+      question: "Saldo awal akun Cash Rp10.000.000. Setelah diposting jurnal Kredit Cash Rp2.000.000, saldo menjadi…",
       options: [
         "A. Rp12.000.000",
         "B. Rp8.000.000",
@@ -1192,7 +1191,7 @@ questions: [
         "D. Rp2.000.000"
       ],
       answer: "B. Rp8.000.000",
-      explanation: "Kredit pada akun Kas berarti pengurangan. Saldo akhir = Rp10.000.000 - Rp2.000.000 = Rp8.000.000."
+      explanation: "Kredit pada akun Cash berarti pengurangan. Saldo akhir = Rp10.000.000 - Rp2.000.000 = Rp8.000.000."
     },
     {
       number: 18,
@@ -1225,10 +1224,10 @@ questions: [
       title: "Soal 20: Pesan Terakhir tentang Posting yang Benar",
       question: "Pesan terakhir menyala di buku besar:\n\"Jika jurnal benar, sisi buku besar harus sama arahnya.\"\nPosting yang benar adalah…",
       options: [
-        "A. Jurnal Debit Kas → Buku Besar Kredit Kas",
-        "B. Jurnal Kredit Pendapatan → Buku Besar Kredit Pendapatan",
-        "C. Jurnal Debit Utang → Buku Besar Kredit Utang",
-        "D. Jurnal Kredit Kas → Buku Besar Debit Kas"
+        "A. Jurnal Debit Cash → Buku Besar Kredit Cash",
+        "B. Jurnal Kredit Revenue → Buku Besar Kredit Revenue",
+        "C. Jurnal Debit Utang → Buku Besar Kredit Account Payable",
+        "D. Jurnal Kredit Cash → Buku Besar Debit Cash"
       ],
       answer: "B. Jurnal Kredit Pendapatan → Buku Besar Kredit Pendapatan",
       explanation: "Prinsip posting adalah memindahkan angka dari jurnal ke buku besar pada sisi yang sama (debit ke debit, kredit ke kredit)."
@@ -1241,11 +1240,11 @@ questions: [
   intro: "Akhirnya kamu tiba di ruangan terbesar. Ada papan besar dengan daftar saldo akun, tetapi sebagian angka hilang. Untuk keluar, kamu harus menyusun neraca saldo dan laporan keuangan sederhana berdasarkan bukti transaksi yang tersedia.",
   info: "Akhirnya kamu tiba di ruangan terbesar. Ada papan besar dengan daftar saldo akun, tetapi sebagian angka hilang. Untuk keluar, kamu harus menyusun neraca saldo dan laporan keuangan sederhana berdasarkan bukti transaksi yang tersedia. Namun sebelum memasuki ruangan besar tersebut, kamu diwajibkan memecahkan sebuah KODE AWAL terakhir sebagai syarat untuk membuka pintu masuk.",
   codes: {
-    "Tanah": 121,
-    "Harta tetap": 120,
-    "Hak Paten": 142,
-    "Utang": 200,
-    "Modal": 300,
+    "Land": 121,
+    "Vehicles": 120,
+    "Supplies": 142,
+    "Account Payable": 200,
+    "Equity": 300,
     "Prive": 312,
   },
 questions: [
@@ -1421,7 +1420,7 @@ questions: [
     {
       number: 14,
       title: "Soal 14: Angka Melayang Pendapatan dan Beban",
-      question: "Angka-angka melayang di udara:\nPendapatan Rp8.000.000\nBeban Rp5.000.000\nSebuah suara berbisik: “Selisih kami adalah kunci.”\nBesar kunci itu adalah…",
+      question: "Angka-angka melayang di udara:\nRevenue Rp8.000.000\nExpense Rp5.000.000\nSebuah suara berbisik: “Selisih kami adalah kunci.”\nBesar kunci itu adalah…",
       options: [
         "A. Rp3.000.000",
         "B. Rp5.000.000",
@@ -1434,14 +1433,14 @@ questions: [
     {
       number: 15,
       title: "Soal 15: Sifat Akun Piutang Usaha",
-      question: "Di dinding muncul tulisan PIUTANG USAHA lalu berubah warna biru. Catatan kecil berbunyi:\n\"Aku adalah milik perusahaan, bukan kewajiban.\"\nAkun ini termasuk…",
+      question: "Di dinding muncul tulisan Account receivable lalu berubah warna biru. Catatan kecil berbunyi:\n\"Aku adalah milik perusahaan, bukan kewajiban.\"\nAkun ini termasuk…",
       options: [
-        "A. Aset",
-        "B. Utang",
-        "C. Modal",
-        "D. Beban"
+        "A. Asset",
+        "B. Liabilities",
+        "C. Equity",
+        "D. Expense"
       ],
-      answer: "A. Aset",
+      answer: "A. Asset",
       explanation: "Piutang Usaha adalah hak perusahaan untuk menerima pembayaran di masa depan dari pelanggan, sehingga diklasifikasikan sebagai Aset Lancar."
     },
     {
@@ -1460,7 +1459,7 @@ questions: [
     {
       number: 17,
       title: "Soal 17: Analisis Perubahan Modal",
-      question: "Bayangan angka muncul:\nPendapatan 15.000.000\nBeban 10.000.000\nPrive 2.000.000\nPesan rahasia: “Yang tersisa memperkuat atau melemahkan pemilik.”\nPerubahan bersih modal adalah…",
+      question: "Bayangan angka muncul:\nRevenue 15.000.000\nExpense 10.000.000\nPrive 2.000.000\nPesan rahasia: “Yang tersisa memperkuat atau melemahkan pemilik.”\nPerubahan bersih modal adalah…",
       options: [
         "A. 5.000.000",
         "B. 3.000.000",
@@ -1486,7 +1485,7 @@ questions: [
     {
       number: 19,
       title: "Soal 19: Menghitung Modal dari Persamaan Akuntansi",
-      question: "Papan besar menunjukkan:\nAset = 40.000.000\nUtang = 15.000.000\nSuara mekanik berkata: “Sisa ini milik pemilik.”\nNilainya adalah…",
+      question: "Papan besar menunjukkan:\nAsset = 40.000.000\nLiabilities = 15.000.000\nSuara mekanik berkata: “Sisa ini milik pemilik.”\nNilainya adalah…",
       options: [
         "A. 25.000.000",
         "B. 15.000.000",
@@ -1501,10 +1500,10 @@ questions: [
       title: "Soal 20: Akun yang Ditolak Laporan Laba Rugi",
       question: "Beberapa akun beterbangan. Salah satunya ditolak oleh layar laba rugi. Akun itu adalah…",
       options: [
-        "A. Pendapatan",
-        "B. Beban Gaji",
-        "C. Peralatan",
-        "D. Beban Listrik"
+        "A. Revenue",
+        "B. Salaries and Wages Expense",
+        "C. Equipment",
+        "D. Utilities Expense"
       ],
       answer: "C. Peralatan",
       explanation: "Laporan Laba Rugi hanya berisi akun nominal (Pendapatan dan Beban). Peralatan adalah akun riil (aset) yang dilaporkan di Laporan Posisi Keuangan."
@@ -1538,7 +1537,7 @@ questions: [
     {
       number: 23,
       title: "Soal 23: Pertumbuhan Bersih Pemilik",
-      question: "Angka di lantai menyala:\nPendapatan 20.000.000\nBeban 12.000.000\nPrive 3.000.000\nPesan muncul: “Inilah pertumbuhan bersih pemilik.”\nNilainya…",
+      question: "Angka di lantai menyala:\nRevenue 20.000.000\nExpense 12.000.000\nPrive 3.000.000\nPesan muncul: “Inilah pertumbuhan bersih pemilik.”\nNilainya…",
       options: [
         "A. 8.000.000",
         "B. 5.000.000",
@@ -1566,10 +1565,10 @@ questions: [
       title: "Soal 25: Kunci Terakhir - Hukum Utama",
       question: "Seluruh ruangan gelap. Hanya satu kalimat bercahaya:\n\"Segala sesuatu harus seimbang. Itulah hukum utama ruangan ini.\"\nHukum yang dimaksud adalah…",
       options: [
-        "A. Pendapatan – Beban",
-        "B. Aset = Utang + Modal",
-        "C. Kas = Modal",
-        "D. Laba = Modal"
+        "A. Revenue – Expense",
+        "B. Asset = Liabilities  + Equity",
+        "C. Cash = Equity",
+        "D. Net Income  = Equity"
       ],
       answer: "B. Aset = Utang + Modal",
       explanation: "Hukum utama atau persamaan dasar akuntansi yang harus selalu seimbang adalah: Aset (harta) sama dengan Kewajiban (utang) ditambah Ekuitas (modal). Keseimbangan ini menjadi fondasi seluruh sistem pencatatan akuntansi."
